@@ -8,12 +8,6 @@ Know a resource that isn't listed below? Feel free to create a new [pull request
 
 在原来的chatbot-links的基础上，添加了一些更多的中文资源而组建的一个List，主要用于个人收集。感兴趣，一起建设完善的资源列表，方便萌新入门，请发送PR或Issue添加更多资源，各层面不限，欢迎添加自己的作品。
 
-为了方便中文用户中对chatbot/NLP/DeepLearning感兴趣的朋友们互相交流，我建了一个QQ群，欢迎加入讨论：
-
-![chatbot_qq_qun](qun-wide.png)
-
-良好的氛围在于共同的努力，欢迎您加入讨论，畅所欲言！
-
 
 
 ___
@@ -78,7 +72,7 @@ Framework: Torch 7
     What color is the sky?	→ It's blue.
     What is your job?		→ It's not that i'm a fucking werewolf!
 
-#####[chatbot-zh-torch7](https://github.com/fateleak/chatbot-zh-torch7)
+##### [chatbot-zh-torch7](https://github.com/fateleak/chatbot-zh-torch7)
 
 Framework: Torch 7
 
@@ -123,11 +117,11 @@ Get a lot of raw movie subtitles (~1.2Gb)
 ##### [Cornell Movie-Dialogs Corpus](http://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html)
 ~ 40Mb after clearing out the technical data.
 
-#####[dgk_lost_conv](https://github.com/fateleak/dgk_lost_conv)
+##### [dgk_lost_conv](https://github.com/fateleak/dgk_lost_conv)
 1Gb左右的[中文]语料。大部分为由字幕生成的材料，少量其它对话(如以前的小黄鸡的材料)。
 其中results/xiaohuangji50w_fenciA.conv.zip为上面chatbot-zh-torch7的演示的训练材料。
 
-#####[原射手网的打包字幕合集17G](http://afcapp.boringuniverse.com)
+##### [原射手网的打包字幕合集17G](http://afcapp.boringuniverse.com)
 现已关闭的射手网有一个所有字幕的合集包，请自行网上搜索下载。
 
 
@@ -142,3 +136,13 @@ Get a lot of raw movie subtitles (~1.2Gb)
 
 ## 贡献列表
 [fateleak](http://github.com/fateleak)
+
+
+
+为了方便中文用户中对chatbot/NLP/DeepLearning感兴趣的朋友们互相交流，建了一个QQ群，欢迎您加入讨论：
+
+![chatbot_qq_qun](qun-wide.png)
+
+
+
+[A.F.C App 守护您的健康](http://afcapp.boringuniverse.com)
