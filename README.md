@@ -54,10 +54,10 @@ Google官方的seq2seq实现，采用了注意力机制(Luong et al., 2015)，�
 Framework: Torch 6.x
 Source code for a bunch of super nice articles by Jiwei Li - one of my favorite researches in the domain of neural conversational systems. Worth checking out.
 
-    tell me ... how long have you had this falling sickness ?   → a few months, I guess .
+    tell me ... how long have you had this falling sickness ?       → a few months, I guess .
     so i had the doctors test sammy ’s response to conditioning .   → so he took the pills .
-    what are you going to do ?  → i ’m going to get you a new car .
-    they fear your power your intellect .   → i ’m not afraid of your power .
+    what are you going to do ?                                      → i ’m going to get you a new car .
+    they fear your power your intellect .                           → i ’m not afraid of your power .
 
 ##### [neuralconvo](https://github.com/macournoyer/neuralconvo)
 
@@ -76,38 +76,66 @@ Framework: Torch 7
 
 Framework: Torch 7
 
-从neuralconvo修改而来的，一个中文的chatbot demo。
+从neuralconvo修改而来的，当时应该是第一个中文的RNN based chatbot DEMO。
 ![chatbot-zh-torch7](zh.png)
+
+####  [Seq2seq_Chatbot_QA](https://github.com/qhduan/Seq2Seq_Chatbot_QA)
+Framework: Tensorflow
+一个中文的Demo，说明比较详细，推荐。
+
+result:
+
+	你到哪里去        →你不是说你不是我的
+	你喜欢我吗？      →我喜欢你
+	你吃了吗？        →我还没吃饭呢
+	你喜欢喝酒吗？     →我不知道
+	你说话没有逻辑啊   →没有
+
+#### [ChatterBot](https://github.com/gunthercox/ChatterBot)
+
+Framework: python
+
+看上去比较完整的一个项目，安装简单，说明比较完善，有提供训练的材料，英文为主。
+
+	Good morning! How are you doing?   →I am doing very well, thank you for asking.
+	You're welcome.                    →Do you like hats?
 
 
 
 ##### [farizrahman4u/seq2seq](https://github.com/farizrahman4u/seq2seq)
+
 ##### [nicolas-ivanov/debug_seq2seq](https://github.com/nicolas-ivanov/debug_seq2seq)
 ##### [codekansas/keras-language-modeling](https://github.com/codekansas/keras-language-modeling)
 Framework: keras
 
 
-这几个都是seq2seq的实现，但是在Chatbot上面还没有好的结果。
+这几个都是seq2seq的实现，但是在Chatbot上面还没有好的demo result。
 
 ##### [oswaldoludwig/Seq2seq-Chatbot-for-Keras](https://github.com/oswaldoludwig/Seq2seq-Chatbot-for-Keras)
 A new generative chatbot whose training converges in few epochs, including a model pre-trained on a small but consistent dataset collected from dialogues of English courses online.
 
 这个采用了生成模型的方式，待补充。
 
-    user: Hello! How are you?
-    computer:  i am fine , ok , well , thank you  .    (with probability of 0.540239)
-    user: What's your name?
-    computer:  janet .     (with probability of 0.319482)
-    user:  What do you like to do now?
-    computer:  let me think a minute .     (with probability of 0.286760)
-    user: I want to chat about computer science.
-    computer:  i am glad to hear there .     (with probability of 0.293063)
-    user: Are you a real girl or a computer program?
-    computer:  i am self employed . i would love to be well .     (with probability of 0.026870)
-    user: Why don't you look for a job?
-    computer:  i do not know . i am the bank .     (with probability of 0.053494)
-    user: So, you don't need a job!
-    computer:  no . i have to make a lot of money .     (with probability of 0.001279)
+        user:  Hello! How are you?
+    computer:  i am fine , ok , well , thank you  .  
+    
+        user:  What's your name?
+    computer:  janet .   
+    
+        user:  What do you like to do now?
+    computer:  let me think a minute .   
+    
+        user:  I want to chat about computer science.
+    computer:  i am glad to hear there .   
+    
+        user:  Are you a real girl or a computer program?
+    computer:  i am self employed . i would love to be well .   
+    
+        user:  Why don't you look for a job?
+    computer:  i do not know . i am the bank .   
+    
+        user:  So, you don't need a job!
+    computer:  no . i have to make a lot of money .  
 
 
 ## Corpus
@@ -118,11 +146,21 @@ Get a lot of raw movie subtitles (~1.2Gb)
 ~ 40Mb after clearing out the technical data.
 
 ##### [dgk_lost_conv](https://github.com/fateleak/dgk_lost_conv)
-1Gb左右的[中文]语料。大部分为由字幕生成的材料，少量其它对话(如以前的小黄鸡的材料)。
+[中文]语料。大部分为由字幕生成的材料，少量其它对话(如以前的小黄鸡的材料，我从一位网友朋友那里要过来了，感谢他)。
 其中results/xiaohuangji50w_fenciA.conv.zip为上面chatbot-zh-torch7的演示的训练材料。
 
-##### [原射手网的打包字幕合集17G](http://afcapp.boringuniverse.com)
-现已关闭的射手网有一个所有字幕的合集包，请自行网上搜索下载。
+##### [原射手网的打包字幕合集17G]
+现已关闭的射手网有一个所有字幕的合集包，感兴趣的同学需要自行网上搜索下载。
+
+##### [Some English QA Material](https://github.com/karthikncode/nlp-datasets)
+这是他人收集的自然语言处理相关数据集，主要包含Question Answering，Dialogue Systems， Goal-Oriented Dialogue Systems三部分，都是英文文本。可以使用机器翻译为中文，供中文对话使用。
+
+
+##### TODO
+
+dgk_lost_conv中字幕生成的材料的问题是质量较差，这是因为字幕文件中包含了很多的旁白，或者单人连续说话的情况，而这些在处理的时候都没有剔除掉。希望有同学能够找到方法。
+或者
+从微博、QQ群、微信群等地方挖掘更多的1v1的对话材料。
 
 
 ## Papers
@@ -138,6 +176,8 @@ Get a lot of raw movie subtitles (~1.2Gb)
 [fateleak](http://github.com/fateleak)
 
 
+
+## 广告：
 
 为了方便中文用户中对chatbot/NLP/DeepLearning感兴趣的朋友们互相交流，建了一个QQ群，欢迎您加入讨论：
 
