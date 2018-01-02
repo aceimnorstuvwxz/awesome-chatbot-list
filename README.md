@@ -1,6 +1,6 @@
 
 
-![cover](cover.png)
+![cover](r/cover.png)
 
 ![Contributions Welcome](https://img.shields.io/badge/Contributions-welcome-blue.svg)
 
@@ -46,7 +46,7 @@ Framework: Tensorflow
 
 Google Official seq2seq implementation, attention included. Originlly for translation, can be used as Q/A;
 Google官方的seq2seq实现，采用了注意力机制(Luong et al., 2015)，原本用于语言翻译，也适用于简单Q/A。
-![](nmt.png)
+![](r/nmt.png)
 
 **Torch**
 
@@ -77,7 +77,7 @@ Framework: Torch 7
 Framework: Torch 7
 
 从neuralconvo修改而来的，当时应该是第一个中文的RNN based chatbot DEMO。
-![chatbot-zh-torch7](zh.png)
+![chatbot-zh-torch7](r/zh.png)
 
 ####  [Seq2seq_Chatbot_QA](https://github.com/qhduan/Seq2Seq_Chatbot_QA)
 Framework: Tensorflow
@@ -181,7 +181,7 @@ dgk_lost_conv中字幕生成的材料的问题是质量较差，这是因为字�
 
 为了方便中文用户中对chatbot/NLP/DeepLearning感兴趣的朋友们互相交流，建了一个QQ群，欢迎您加入讨论：
 
-![chatbot_qq_qun](qun-wide.png)
+![chatbot_qq_qun](r/qun-wide.png)
 
 
 
