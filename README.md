@@ -1,6 +1,6 @@
 
 
-![cover](r/cover.png)
+![cover](https://ws1.sinaimg.cn/large/006tNc79gy1fn924jmcfmj31dc0h8js4.jpg)
 
 ![Contributions Welcome](https://img.shields.io/badge/Contributions-welcome-blue.svg)
 
@@ -14,7 +14,28 @@ ___
 
 ## Codes
 
-##### [DeepQA](https://github.com/Conchylicultor/DeepQA)
+#### [chatbot-rnn](https://github.com/pender/chatbot-rnn)
+
+Framework tensorflow
+
+A toy chatbot powered by deep learning and trained on data from Reddit.
+
+```
+> Hi, how are you?
+ I'm not the only one here that's having fun with you, it's all me.
+> Who else is with you?
+ Haha. I'm not the one who made the comment. I'm the one who said that and didn't think that much of anything. 
+> Oh, I see. So what's new?
+ Nothing. I just thought it was a bit of an overreaction. It's been a while since I've read it. 
+> It's all good
+ It's all good. It's one of those things that makes me smile :)
+> That's great. This is actually my demo chat, so it's nice that you're keeping things positive!
+ Thank you :) 
+```
+
+
+#### [DeepQA](https://github.com/Conchylicultor/DeepQA)
+
 Framework: Tensorflow
 Demo result:
 
@@ -26,7 +47,7 @@ Demo result:
     Say 'goodbye'				→ Alright.
     Two plus two				→ manny...
 
-##### [tf_seq2seq_chatbot](https://github.com/nicolas-ivanov/tf_seq2seq_chatbot)
+#### [tf_seq2seq_chatbot](https://github.com/nicolas-ivanov/tf_seq2seq_chatbot)
 Framework: Tensorflow
 
 No answering randomisation is implemented in this code, so the models answers with the same phrase way each time:
@@ -46,11 +67,11 @@ Framework: Tensorflow
 
 Google Official seq2seq implementation, attention included. Originlly for translation, can be used as Q/A;
 Google官方的seq2seq实现，采用了注意力机制(Luong et al., 2015)，原本用于语言翻译，也适用于简单Q/A。
-![](r/nmt.png)
+![](https://ws2.sinaimg.cn/large/006tNc79gy1fn924qhmvtj30ck09cdia.jpg)
 
-**Torch**
 
-##### [Neural-Dialogue-Generation](https://github.com/jiweil/Neural-Dialogue-Generation)
+
+#### [Neural-Dialogue-Generation](https://github.com/jiweil/Neural-Dialogue-Generation)
 Framework: Torch 6.x
 Source code for a bunch of super nice articles by Jiwei Li - one of my favorite researches in the domain of neural conversational systems. Worth checking out.
 
@@ -59,7 +80,7 @@ Source code for a bunch of super nice articles by Jiwei Li - one of my favorite 
     what are you going to do ?                                      → i ’m going to get you a new car .
     they fear your power your intellect .                           → i ’m not afraid of your power .
 
-##### [neuralconvo](https://github.com/macournoyer/neuralconvo)
+#### [neuralconvo](https://github.com/macournoyer/neuralconvo)
 
 Framework: Torch 7
 
@@ -72,12 +93,12 @@ Framework: Torch 7
     What color is the sky?	→ It's blue.
     What is your job?		→ It's not that i'm a fucking werewolf!
 
-##### [chatbot-zh-torch7](https://github.com/fateleak/chatbot-zh-torch7)
+#### [chatbot-zh-torch7](https://github.com/fateleak/chatbot-zh-torch7)
 
 Framework: Torch 7
 
 从neuralconvo修改而来的，当时应该是第一个中文的RNN based chatbot DEMO。
-![chatbot-zh-torch7](r/zh.png)
+![chatbot-zh-torch7](https://ws1.sinaimg.cn/large/006tNc79gy1fn924y5hjvj30il0dwmz8.jpg)
 
 ####  [Seq2seq_Chatbot_QA](https://github.com/qhduan/Seq2Seq_Chatbot_QA)
 Framework: Tensorflow
@@ -102,16 +123,16 @@ Framework: python
 
 
 
-##### [farizrahman4u/seq2seq](https://github.com/farizrahman4u/seq2seq)
+#### [farizrahman4u/seq2seq](https://github.com/farizrahman4u/seq2seq)
 
-##### [nicolas-ivanov/debug_seq2seq](https://github.com/nicolas-ivanov/debug_seq2seq)
-##### [codekansas/keras-language-modeling](https://github.com/codekansas/keras-language-modeling)
+#### [nicolas-ivanov/debug_seq2seq](https://github.com/nicolas-ivanov/debug_seq2seq)
+#### [codekansas/keras-language-modeling](https://github.com/codekansas/keras-language-modeling)
 Framework: keras
 
 
 这几个都是seq2seq的实现，但是在Chatbot上面还没有好的demo result。
 
-##### [oswaldoludwig/Seq2seq-Chatbot-for-Keras](https://github.com/oswaldoludwig/Seq2seq-Chatbot-for-Keras)
+#### [oswaldoludwig/Seq2seq-Chatbot-for-Keras](https://github.com/oswaldoludwig/Seq2seq-Chatbot-for-Keras)
 A new generative chatbot whose training converges in few epochs, including a model pre-trained on a small but consistent dataset collected from dialogues of English courses online.
 
 这个采用了生成模型的方式，待补充。
@@ -139,24 +160,24 @@ A new generative chatbot whose training converges in few epochs, including a mod
 
 
 ## Corpus
-##### [AlJohri/OpenSubtitles](https://github.com/AlJohri/OpenSubtitles)
+#### [AlJohri/OpenSubtitles](https://github.com/AlJohri/OpenSubtitles)
 Get a lot of raw movie subtitles (~1.2Gb)
 
-##### [Cornell Movie-Dialogs Corpus](http://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html)
+#### [Cornell Movie-Dialogs Corpus](http://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html)
 ~ 40Mb after clearing out the technical data.
 
-##### [dgk_lost_conv](https://github.com/fateleak/dgk_lost_conv)
+#### [dgk_lost_conv](https://github.com/fateleak/dgk_lost_conv)
 [中文]语料。大部分为由字幕生成的材料，少量其它对话(如以前的小黄鸡的材料，我从一位网友朋友那里要过来了，感谢他)。
 其中results/xiaohuangji50w_fenciA.conv.zip为上面chatbot-zh-torch7的演示的训练材料。
 
-##### [原射手网的打包字幕合集17G]
+#### [原射手网的打包字幕合集17G]
 现已关闭的射手网有一个所有字幕的合集包，感兴趣的同学需要自行网上搜索下载。
 
-##### [Some English QA Material](https://github.com/karthikncode/nlp-datasets)
+#### [Some English QA Material](https://github.com/karthikncode/nlp-datasets)
 这是他人收集的自然语言处理相关数据集，主要包含Question Answering，Dialogue Systems， Goal-Oriented Dialogue Systems三部分，都是英文文本。可以使用机器翻译为中文，供中文对话使用。
 
 
-##### TODO
+#### TODO
 
 dgk_lost_conv中字幕生成的材料的问题是质量较差，这是因为字幕文件中包含了很多的旁白，或者单人连续说话的情况，而这些在处理的时候都没有剔除掉。希望有同学能够找到方法。
 或者
@@ -171,18 +192,10 @@ dgk_lost_conv中字幕生成的材料的问题是质量较差，这是因为字�
 [1]: http://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf
 [2]: http://arxiv.org/pdf/1506.05869v1.pdf
 
-
-## 贡献列表
-[fateleak](http://github.com/fateleak)
-
-
-
-## 广告：
+## 其它：
 
 为了方便中文用户中对chatbot/NLP/DeepLearning感兴趣的朋友们互相交流，建了一个QQ群，欢迎您加入讨论：
 
-![chatbot_qq_qun](r/qun-wide.png)
+![chatbot_qq_qun](https://ws2.sinaimg.cn/large/006tNc79gy1fn925c4kmtj30k1082q3l.jpg)
 
-
-
-[A.F.C App 守护您的健康](http://afcapp.boringuniverse.com)
+[Github fork](https://github.com/fateleak/awesome-chatbot-list)
