@@ -159,7 +159,26 @@ A new generative chatbot whose training converges in few epochs, including a mod
     computer:  no . i have to make a lot of money .  
 
 
+
+### [pydial](http://www.camdial.org/pydial/)
+
+一个多领域多轮会话的开发框架
+
+![](r/1.png)
+[paper](http://www.aclweb.org/anthology/P17-4013)
+
+- 剑桥的开源DS [PyDial](http://www.camdial.org/pydial/)
+- 一个开源的DS [deepmipt/DeepPavlov](https://github.com/deepmipt/DeepPavlov)
+- 一个商业但开源的DS [Rasa Core](https://rasa.com/)
+- 比较简单的机器人[ChatterBot](https://github.com/gunthercox/ChatterBot)
+- 一个开源的QA系统，里面那个论文列表不错 [castorini/BuboQA](https://github.com/castorini/BuboQA)
+- AIML的公司 [pandorabots](https://home.pandorabots.com/en/)
+
+### 
+
+
 ## Corpus
+
 #### [AlJohri/OpenSubtitles](https://github.com/AlJohri/OpenSubtitles)
 Get a lot of raw movie subtitles (~1.2Gb)
 
