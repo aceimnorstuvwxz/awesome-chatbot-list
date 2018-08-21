@@ -1,0 +1,3327 @@
+
+
+导入词库 在群里发 添加主人艾特自己 开机
+
+
+
+
+关机框架
+🍀MiKu【黯魂初音未来】配置🍀\r
+当前初音没有开机。
+
+主人框架
+🍀MiKu【黯魂初音未来】配置🍀\r
+你不是初音的主人。
+
+报时框架
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来报时开关/%群号%/开关 a 0$
+如果:%b%==0
+返回
+如果尾
+如果:%时间mmss%==0000|%时间mmss%==3000
+card:1
+<?API version='1.0' encoding='UTF-8' standalone='yes' ?><msg serviceID="2" templateID="1" action="web" brief="[音乐]报时" sourcemsgId="0" url="http://980.so/3sYo3G" flag="0" adverSign="0" multimsgFlag="0"><item layout="2"><audio cover="http://s.p.qq.com/pub/get_face?img_type=3&amp;uin=2570037604" src="http://980.so/3sYo3G" /><title>报时</title><summary>MiKu贴心提示</summary></item><source name="整点报时" icon="http://url.cn/4A9Y5O0"/></msg>
+$调用 1000 报时框架$
+返回
+如果尾
+$调用 1000 报时框架$
+
+
+添加主人@.*
+如果:%AT0%==null
+🍀MiKu【黯魂初音未来】配置🍀\r
+抱歉，@是不能复制的
+返回
+如果尾
+a:$读 黯魂初音未来主人/%群号%/%AT0%/主人 a 0$
+如果:%a%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+【%AT0%】本来就是我的主人
+返回
+如果尾
+如果:%QQ%==2570037604
+$写 黯魂初音未来主人/%群号%/%AT0%/主人 a 1$
+🍀MiKu【黯魂初音未来】配置🍀\r
+【%AT0%】成为我的新主人
+返回
+如果尾
+🍀MiKu【黯魂初音未来】配置🍀\r
+【%QQ%】您不是我的主人
+
+删除主人@.*
+如果:%AT0%==null
+🍀MiKu【黯魂初音未来】配置🍀\r
+抱歉，@是不能复制的
+返回
+如果尾
+a:$读 黯魂初音未来主人/%群号%/%AT0%/主人 a 0$
+如果:%a%==0
+🍀MiKu【黯魂初音未来】配置🍀\r
+【%AT0%】本来就不是我的主人
+返回
+如果尾
+如果:%QQ%==2570037604
+$写 黯魂初音未来主人/%群号%/%AT0%/主人 a 0$
+🍀MiKu【黯魂初音未来】配置🍀\r
+【%AT0%】不是我的主人了
+返回
+如果尾
+🍀MiKu【黯魂初音未来】配置🍀\r
+【%QQ%】您不是我的主人
+
+开机
+a:$读 黯魂初音未来主人/%群号%/%QQ%/主人 a 0$
+b:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+当前本来就是运行状态！
+返回
+如果尾
+如果:%a%==0
+🍀MiKu【黯魂初音未来】配置🍀\r
+你不是我的主人呀！
+返回
+如果尾
+🍀MiKu【黯魂初音未来】配置🍀\r
+$写 黯魂初音未来运行/%群号%/运行 a 1$
+$写 黯魂初音未来模式/%群号%/模式 a 1$
+开机成功！\r
+欢迎使用\r
+【黯魂初音未来】配置!
+
+关机
+a:$读 黯魂初音未来主人/%群号%/%QQ%/主人 a 0$
+b:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%b%==0
+🍀MiKu【黯魂初音未来】配置🍀\r
+当前本来是关机状态！
+返回
+如果尾
+如果:%a%==0
+🍀MiKu【黯魂初音未来】配置🍀\r
+你不是我的主人呀！
+返回
+如果尾
+🍀MiKu【黯魂初音未来】配置🍀\r
+$写 黯魂初音未来运行/%群号%/运行 a 0$
+$写 黯魂初音未来模式/%群号%/模式 a 0$
+关机成功！【黯魂初音未来】已关机!
+
+切换文字
+a:$读 黯魂初音未来主人/%群号%/%QQ%/主人 a 0$
+b:$读 黯魂初音未来运行/%群号%/运行 a 0$
+c:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%b%==0
+🍀MiKu【黯魂初音未来】配置🍀\r
+当前本来是关机状态！
+返回
+如果尾
+如果:%c%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+当前本来就是文字模式。
+返回
+如果尾
+如果:%a%==0
+🍀MiKu【黯魂初音未来】配置🍀\r
+你不是我的主人呀！
+返回
+如果尾
+🍀MiKu【黯魂初音未来】配置🍀\r
+$写 黯魂初音未来模式/%群号%/模式 a 1$
+切换文字成功！
+
+切换卡片
+a:$读 黯魂初音未来主人/%群号%/%QQ%/主人 a 0$
+b:$读 黯魂初音未来运行/%群号%/运行 a 0$
+c:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%b%==0
+🍀MiKu【黯魂初音未来】配置🍀\r
+当前本来是关机状态！
+返回
+如果尾
+如果:%c%==2
+🍀MiKu【黯魂初音未来】配置🍀\r
+当前本来就是卡片模式。
+返回
+如果尾
+如果:%a%==0
+🍀MiKu【黯魂初音未来】配置🍀\r
+你不是我的主人呀！
+返回
+如果尾
+🍀MiKu【黯魂初音未来】配置🍀\r
+$写 黯魂初音未来模式/%群号%/模式 a 2$
+切换卡片成功！
+
+(菜单|帮助|功能)
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$\r
+🍀签到系统🍀恐怖医院🍀\r
+🍀斗图系统🍀走势系统🍀\r
+🍀末日求生🍀人品系统🍀\r
+🍀腾讯系统🍀文卡管理🍀\r
+🍀复读系统🍀工具下载🍀\r
+🍀点歌系统🍀群管系统🍀\r
+🍀点赞系统🍀装逼系统🍀\r
+🍀百度百科🍀官方主群🍀\r
+🍀快手视频🍀手机状态🍀\r
+🍀系统设置🍀留言系统🍀\r
+🍀整点报时🍀充扣系统🍀\r
+🍀主人系统🍀动漫图库🍀\r
+🍀词库介绍🍀机器系统🍀\r
+🍀清屏系统🍀清零系统🍀\r
+🍀懒人系统🍀新人系统🍀\r
+🍀制作系统🍀藏诗系统🍀\r
+🍀每日一句🍀联系作者🍀
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀签到系统🍀恐怖医院🍀&#013;
+🍀斗图系统🍀走势系统🍀&#013;
+🍀末日求生🍀人品系统🍀&#013;
+🍀腾讯系统🍀文卡管理🍀&#013;
+🍀复读系统🍀工具下载🍀&#013;
+🍀点歌系统🍀群管系统🍀&#013;
+🍀点赞系统🍀装逼系统🍀&#013;
+🍀百度百科🍀官方主群🍀&#013;
+🍀快手视频🍀手机状态🍀&#013;
+🍀系统设置🍀艾特系统🍀&#013;
+🍀整点报时🍀充扣系统🍀&#013;
+🍀主人系统🍀动漫图库🍀&#013;
+🍀词库介绍🍀机器系统🍀&#013;
+🍀清屏系统🍀清零系统🍀&#013;
+🍀懒人系统🍀新人系统🍀&#013;
+🍀制作系统🍀藏诗系统🍀&#013;
+🍀每日一句🍀联系作者🍀</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+懒人系统
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+$写 黯魂初音未来新人/%群号%/新人 a %参数1%$
+🍀MiKu【黯魂初音未来】配置🍀\r
+打开爱奇艺|QQ音乐|淘宝|酷狗音乐|微信|王者荣耀|快手
+返回
+如果尾
+如果:%b%==2
+$写 黯魂初音未来新人/%群号%/新人 a %参数1%$
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+打开爱奇艺|QQ音乐|淘宝|酷狗音乐|微信|王者荣耀|快手
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+打开.*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%参数0%==快速打开爱奇艺
+card:1
+<?xml version='1.0'?><msg flag='3' serviceID='1' action='app' actionData='com.qiyi.video' brief=''><item layout='5'><picture cover='http://url.cn/4En09DO' /><title>点击进入爱奇艺</title></item><source name='五哥网络科技' icon='http://url.cn/JS8oE7' /></msg>
+返回
+如果尾
+如果:%参数0%==快速打开QQ音乐
+card:1
+<?xml version='1.0'?><msg flag='3' serviceID='1' action='app' actionData='com.tencent.qqmusic' brief=''><item layout='5'><picture cover='http://t.cn/R9k5HKN' /><title>点击进入QQ音乐</title></item><source name='五哥网络科技' icon='http://url.cn/JS8oE7' /></msg>
+返回
+如果尾
+如果:%参数0%==快速打开淘宝
+card:1
+<?xml version='1.0'?><msg flag='3' serviceID='1' action='app' actionData='com.taobao.taobao' brief=''><item layout='5'><picture cover='http://t.cn/R9kUqtW' /><title>点击进入淘宝</title></item><source name='五哥网络科技' icon='http://url.cn/JS8oE7' /></msg>
+返回
+如果尾
+如果:%参数0%==快速打开酷狗音乐
+card:1
+<?xml version='1.0'?><msg flag='3' serviceID='1' action='app' actionData='com.kugou.android' brief=''><item layout='5'><picture cover='http://t.cn/R9k2lFR' /><title>点击进入酷狗音乐</title></item><source name='五哥网络科技' icon='http://url.cn/JS8oE7' /></msg>
+返回
+如果尾
+如果:%参数0%==快速打开微信
+card:1
+<?xml version='1.0'?><msg flag='3' serviceID='1' action='app' actionData='com.tencent.mm' brief=''><item layout='5'><picture cover='http://t.cn/zHBmbmX' /><title>点击进入微信</title></item><source name='五哥网络科技' icon='http://url.cn/JS8oE7' /></msg>
+返回
+如果尾
+如果:%参数0%==快速打开王者荣耀
+card:1
+<?xml version='1.0'?><msg flag='3' serviceID='1' action='app' actionData='com.tencent.tmgp.sgame' brief=''><item layout='5'><picture cover='http://t.cn/R9eCni1' /><title>点击进入王者荣耀</title></item><source name='五哥网络科技' icon='http://url.cn/JS8oE7' /></msg>
+返回
+如果尾
+如果:%参数0%==快速打开快手
+card:1
+<?xml version='1.0'?><msg flag='3' serviceID='1' action='app' actionData='com.smile.gifmaker' brief=''><item layout='5'><picture cover='http://t.cn/R9eN4uF' /><title>点击启动进入快手</title></item><source name='' icon='五哥网络科技' /></msg>
+
+
+制作系统
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+$写 黯魂初音未来新人/%群号%/新人 a %参数1%$
+🍀MiKu【黯魂初音未来】配置🍀\r
+制作逗比指右[空]内容\r
+制作围观操猪[空]内容\r
+制作尼玛被打[空]内容\r
+制作警察尼玛[空]内容\r
+制作土豪数钱[空]内容\r
+制作尼玛拿屎[空]内容\r
+制作尼玛黑版[空]内容\r
+制作尼玛打人[空]内容\r
+制作尼玛举手[空]内容\r
+制作道士尼玛[空]内容
+返回
+如果尾
+如果:%b%==2
+$写 黯魂初音未来新人/%群号%/新人 a %参数1%$
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+制作逗比指右[空]内容&#013;
+制作围观操猪[空]内容&#013;
+制作尼玛被打[空]内容&#013;
+制作警察尼玛[空]内容&#013;
+制作土豪数钱[空]内容&#013;
+制作尼玛拿屎[空]内容&#013;
+制作尼玛黑版[空]内容&#013;
+制作尼玛打人[空]内容&#013;
+制作尼玛举手[空]内容&#013;
+制作道士尼玛[空]内容
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+
+制作尼玛举手
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/face/img.php?id=9&txt1=%参数1%&font=fzysjt±
+
+制作道士尼玛
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/face/img.php?id=10&txt1=%参数1%&font=fzysjt±
+
+
+制作尼玛打人 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/face/img.php?id=8&txt1=%参数1%&font=fzysjt±
+
+
+制作尼玛黑板 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/face/img.php?id=7&txt1=%参数1%&font=fzysjt±
+
+
+制作尼玛拿屎 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/face/img.php?id=6&txt1=%参数1%&font=fzysjt±
+
+
+制作土豪数钱 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/face/img.php?id=5&txt1=%参数1%&font=fzysjt±
+
+
+制作警察尼玛 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/face/img.php?id=4&txt1=%参数1%&font=fzysjt±
+
+
+制作尼玛被打 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/face/img.php?id=3&txt1=%参数1%&font=fzysjt±
+
+
+制作围观操猪 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/face/img.php?id=2&txt1=%参数1%&font=fzysjt±
+
+
+制作逗比指右 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/face/img.php?id=1&txt1=%参数1%&font=fzysjt±
+
+
+
+清零系统
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+$写 黯魂初音未来新人/%群号%/新人 a %参数1%$
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀清零[空]QQ\r
+🍀需要大主人权限!
+返回
+如果尾
+如果:%b%==2
+$写 黯魂初音未来新人/%群号%/新人 a %参数1%$
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀清零[空]QQ&#013;
+🍀需要大主人权限!
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+清零 [0-9]+
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%QQ%==2570037604
+$写 黯魂初音未来金币/%群号%/%QQ%/金币 a 0$
+清零成功！
+返回
+如果尾
+你不是MiKu
+
+
+
+设置新人进群提示
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+c:$读 黯魂初音未来主人/%群号%/%QQ%/主人 a 0$
+如果:%c%==0
+$调用 1 主人框架$
+返回
+如果尾
+如果:%b%==1
+$写 黯魂初音未来新人/%群号%/新人 a %参数1%$
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀设置成功！\r内容:%参数1%
+返回
+如果尾
+如果:%b%==2
+$写 黯魂初音未来新人/%群号%/新人 a %参数1%$
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀设置成功！&#013;内容:%参数1%
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+大家好，我是.*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀$读 黯魂初音未来新人/%群号%/新人 a 暂无进群提示$
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀$读 黯魂初音未来新人/%群号%/新人 a 暂无进群提示$
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+
+
+新人系统
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀设置新人进群提示[空]内容\r
+🍀需要主人权限!
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀设置新人进群提示[空]内容&#013;
+🍀需要主人权限!
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+清屏系统
+使用说明：清屏
+
+清屏
+🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r🌸🌸🌸\r樱花美吗\r邪神6吗\r
+
+机器系统
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀MiKu机器网[主站]:\r
+🍀http://t.cn/REW3Sgu\r
+🍀MiKu机器网[分站]:\r
+🍀http://t.cn/REW3Sgu\r
+🍀搭建分站5元，主站10元！\r
+🍀本机器网可以免费领取机器人
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀MiKu机器人网[主站]:&#013;
+🍀http://t.cn/REW3Sgu&#013;
+🍀MiKu机器人网[分站]:&#013;
+🍀http://t.cn/REW3Sgu&#013;
+🍀搭建分站5元，主站10元！&#013;
+🍀本机器人网可以免费领取机器人
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+词库介绍
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀词库作者:MiKu\r
+🍀官方群546281332\r
+🍀词库名称:MiKu[黯魂初音未来]
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀词库作者:MiKu&#013;
+🍀官方群546281332&#013;
+🍀词库名称:MiKu[黯魂初音未来]
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+
+
+看漫画图片
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg±
+
+动漫图库
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀看漫画图片
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀看漫画图片
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+主人系统
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀添加主人@AT\r
+🍀删除主人@AT\r
+🍀需要大主人权限!
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀添加主人@AT&#013;
+🍀删除主人@AT&#013;
+🍀需要大主人权限!
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+充扣系统
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀充值金币[空]QQ[空]数量\r
+🍀扣除金币[空]QQ[空]数量\r
+🍀需要主人权限!
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀充值金币[空]QQ[空]数量&#013;
+🍀扣除金币[空]QQ[空]数量&#013;
+🍀需要主人权限!
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+充值金币 [0-9]+ [0-9]+
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+c:$读 黯魂初音未来主人/%群号%/%QQ%/主人 a 0$
+如果:%c%==0
+$调用 1 主人框架$
+返回
+如果尾
+如果:%b%==1
+d:$读 黯魂初音未来金币/%群号%/%参数1%/金币 a 0$
+$写 黯魂初音未来金币/%群号%/%参数1%/金币 a [%d%+%参数2%]$
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀充值成功，已转入账户。
+返回
+如果尾
+如果:%b%==2
+$写 黯魂初音未来金币/%群号%/%参数1%/金币 a [%d%+%参数2%]$
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀充值成功，已转入账户。
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+扣除金币 [0-9]+ [0-9]+
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+c:$读 黯魂初音未来主人/%群号%/%QQ%/主人 a 0$
+如果:%c%==0
+$调用 1 主人框架$
+返回
+如果尾
+如果:%b%==1
+d:$读 黯魂初音未来金币/%群号%/%参数1%/金币 a 0$
+$写 黯魂初音未来金币/%群号%/%参数1%/金币 a [%d%-%参数2%]$
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀扣除成功，已扣除账户。
+返回
+如果尾
+如果:%b%==2
+$写 黯魂初音未来金币/%群号%/%参数1%/金币 a [%d%-%参数2%]$
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀扣除成功，已扣除账户。
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+
+整点报时
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀开启整点报时\r
+🍀关闭整点报时\r
+🍀需要主人权限!
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀开启整点报时&#013;
+🍀关闭整点报时&#013;
+🍀需要主人权限!
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+开启整点报时
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+c:$读 黯魂初音未来主人/%群号%/%QQ%/主人 a 0$
+如果:%c%==0
+$调用 1 主人框架$
+返回
+如果尾
+如果:%b%==1
+$写 黯魂初音未来报时开关/%群号%/开关 a 1$
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀开启整点报时成功！
+返回
+如果尾
+如果:%b%==2
+$写 黯魂初音未来报时开关/%群号%/开关 a 1$
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀开启整点报时成功！
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+关闭整点报时
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+c:$读 黯魂初音未来主人/%群号%/%QQ%/主人 a 0$
+如果:%c%==0
+$调用 1 主人框架$
+返回
+如果尾
+如果:%b%==1
+$写 黯魂初音未来报时开关/%群号%/开关 a 0$
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀关闭整点报时成功！
+返回
+如果尾
+如果:%b%==2
+$写 黯魂初音未来报时开关/%群号%/开关 a 0$
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀关闭整点报时成功！
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+
+系统设置
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀设置公告[空]内容
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀设置公告[空]内容
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+艾特系统
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀已是开启状态！\r
+🍀@AT内容即可发送。
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀已是开启状态！\r
+🍀@AT内容即可发送。
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+@.*.*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+f:[%昵称%发送给你:%参数1%]
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+$发送 临时 false %code% %AT0% %f%$
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀发现@AT，已经发送对方
+返回
+如果尾
+如果:%b%==2
+$发送 临时 false %code% %AT0% %f%$
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀发现@AT，已经发送对方
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+
+
+设置公告 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+c:$读 黯魂初音未来主人/%群号%/%QQ%/主人 a 0$
+如果:%c%==0
+$调用 1 主人框架$
+返回
+如果尾
+如果:%b%==1
+$写 黯魂初音未来公告/%robot%/公告 a %参数1%$
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀设置成功！
+返回
+如果尾
+如果:%b%==2
+$写 黯魂初音未来公告/%robot%/公告 a %参数1%$
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀设置成功！
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+
+
+手机状态
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:%随机数1-100%
+c:%随机数1-5%
+d:%4-10%
+手机电量:%b% %\r
+手机内存:%c% G\r
+手机制造商:TYMiKu\r
+手机屏幕大小:%d%尺\r
+手机内存卡:SD卡\r
+手机运营卡:SIM卡\r
+手机膜屏:可用\r
+手机显示时间:%时间dd%号%时间HH%分
+
+联系作者
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀作者:MiKu\r
+🍀联系QQ2570037604\r
+🍀邮箱:2570037604@qq.com
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀作者:MiKu&#013;
+🍀联系QQ2570037604&#013;
+🍀邮箱:2570037604@qq.com
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+官方主群
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀群名:2018软件群黯魂\r
+🍀联系Q群546281332
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀群名:2018软件群黯魂&#013;
+🍀联系Q群546281332
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+快手视频
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀看快手
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀看快手
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+看快手
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+card:1
+$访问 http://a.jaxmz.cn/dy1.php$
+
+
+生成法拉利 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/paper/news/hcdd/img.php?id=1&txt1=%参数1%±
+
+
+生成保时捷 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/paper/news/hcdd/img.php?id=2&txt1=%参数1%±
+
+生成奔驰 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/paper/news/hcdd/img.php?id=3&txt1=%参数1%±
+
+生成玛莎拉蒂 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/paper/news/msld/img.php?id=1&txt1=%参数1%±
+
+生成私人飞机 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/paper/news/srfj/img.php?txt1=%参数1%±
+
+生成充气娃娃 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/paper/news/cqww/img.php?txt1=%参数1%±
+
+生成病危通知 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/paper/news/bwtzs/img.php?txt1=%参数1%±
+
+生成装逼证 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/paper/news/zbxkz/img.php?txt1=%参数1%±
+
+生成贫困证 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/paper/news/pkz/img.php?txt1=%参数1%±
+
+生成催乳师资格证 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/paper/news/crs/img.php?txt1=%参数1%±
+
+
+生成孕检报告 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/paper/news/yybg/img.php?txt1=%参数1%±
+
+生成跆拳道黑段 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/paper/news/tqdhd/img.php?txt1=%参数1%±
+
+生成奖金支票 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/paper/news/xmjj/img.php?id=1&txt1=%参数1%±
+
+
+生成捐精补助 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/paper/news/jjbz/img.php?txt1=%参数1%±
+
+生成月球广告 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://deepba.com/paper/news/yqjp/img.php?txt1=%参数1%±
+
+装逼系统
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+生成法拉利（空）内容\r生成保时捷（空）内容\r生成奔驰（空）内容\r生成玛莎拉蒂（空）内容\r生成私人飞机（空）内容\r生成充气娃娃（空）内容\r生成病危通知（空）内容\r生成装逼证（空）内容\r生成贫困证（空）内容\r生成催乳师资格证（空）内容\r生成孕检报告（空）内容\r生成奖金支票（空）内容\r生成捐精补助（空）内容\r生成月球广告（空）内容\r生成跆拳道黑段（空）内容
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+生成法拉利（空）内容&#013;生成保时捷（空）内容&#013;生成奔驰（空）内容&#013;生成玛莎拉蒂（空）内容&#013;生成私人飞机（空）内容&#013;生成充气娃娃（空）内容&#013;生成病危通知（空）内容&#013;生成装逼证（空）内容&#013;生成贫困证（空）内容&#013;生成催乳师资格证（空）内容&#013;生成孕检报告（空）内容&#013;生成奖金支票（空）内容&#013;生成捐精补助（空）内容&#013;生成月球广告（空）内容&#013;生成跆拳道黑段（空）内容</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+
+
+点赞系统
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀赞我|点赞
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀赞我|点赞
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+赞我|点赞
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+c:$读 点赞限制/%QQ%/限制 a 0$
+如果:%c%==%时间dd%
+返回
+如果尾
+如果:%b%==1
+$写 点赞限制/%QQ%/限制 a %时间dd%$
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀点赞成功！\r
+🍀记得回赞我哦！
+返回
+如果尾
+如果:%b%==2
+$写 点赞限制/%QQ%/限制 a %时间dd%$
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀点赞成功！&#013;
+🍀记得回赞我哦！
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+
+
+
+禁言@.* [0-9]+
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机状态$
+返回
+如果尾
+c:$读 黯魂初音未来主人/%群号%/%QQ%/主人 a 0$
+如果:%c%==0
+$调用 1 主人框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%b%==1
+$禁 %群号% %AT0% [%参数1%*60]$
+🍀MiKu【黯魂初音未来】配置🍀\r
+【强制执行】\r
+[受害]%AT0%\r
+[命令]%QQ%\r
+[执行]%robot%
+返回
+如果尾
+如果:%b%==2
+$禁 %群号% %AT0% [%参数1%*60]$
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+【强制执行】&#013;
+[受害]%AT0%&#013;
+[命令]%QQ%&#013;
+[执行]%robot%
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+
+
+改名@.* .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机状态$
+返回
+如果尾
+c:$读 黯魂初音未来主人/%群号%/%QQ%/主人 a 0$
+如果:%c%==0
+$调用 1 主人框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%b%==1
+$改 %群号% %AT0% %参数2%$
+🍀MiKu【黯魂初音未来】配置🍀\r
+【强制执行】\r
+[受益]%AT0%\r
+[命令]%QQ%\r
+[执行]%robot%
+返回
+如果尾
+如果:%b%==2
+$改 %群号% %AT0% %参数2%$
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+【强制执行】&#013;
+[受益]%AT0%&#013;
+[命令]%QQ%&#013;
+[执行]%robot%
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+
+解禁@.* [0-9]+
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+c:$读 黯魂初音未来主人/%群号%/%QQ%/主人 a 0$
+如果:%c%==0
+$调用 1 主人框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%b%==1
+$禁 %群号% %AT0% [0*60]$
+🍀MiKu【黯魂初音未来】配置🍀\r
+【强制执行】\r
+[受益]%AT0%\r
+[命令]%QQ%\r
+[执行]%robot%
+返回
+如果尾
+如果:%b%==2
+$禁 %群号% %AT0% [0*60]$
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+【强制执行】&#013;
+[受益]%AT0%&#013;
+[命令]%QQ%&#013;
+[执行]%robot%
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+
+踢出@.*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机状态$
+返回
+如果尾
+c:$读 黯魂初音未来主人/%群号%/%QQ%/主人 a 0$
+如果:%c%==0
+$调用 1 主人框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%b%==1
+$踢 %群号% %AT0%$
+🍀MiKu【黯魂初音未来】配置🍀\r
+【强制执行】\r
+[受害]%AT0%\r
+[命令]%QQ%\r
+[执行]%robot%
+返回
+如果尾
+如果:%b%==2
+$踢 %群号% %AT0%$
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+【强制执行】&#013;
+[受益]%AT0%&#013;
+[命令]%QQ%&#013;
+[执行]%robot%
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+群管系统
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀踢出@AT\r
+🍀禁言@AT[空]时间\r
+🍀解禁@AT[空]时间\r
+🍀改名@AT[空]新群名片\r
+🍀需要主人权限哦！
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀踢出@AT&#013;
+🍀禁言@AT[空]时间&#013;
+🍀解禁@AT[空]时间&#013;
+🍀改名@AT[空]新群名片&#013;
+🍀需要主人权限哦！
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+
+人品系统
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀人品🍀空🍀名字
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀人品🍀空🍀名字
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+人品 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+c:%随机数1-100
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%c%<=60
+🍀MiKu【黯魂初音未来】配置🍀\r
+人品数值:%c%\r
+人品不怎么好哦，继续加油。
+返回
+如果尾
+如果:%b%==1
+如果:%c%>=69
+🍀MiKu【黯魂初音未来】配置🍀\r
+人品数值:%c%\r
+人品不错哦，继续保持。
+返回
+如果尾
+如果:%b%==2
+如果:%c%>=69
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+人品数值:%c%&#013;
+人品不错哦，继续保持。
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+
+藏诗系统
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀藏头诗🍀空🍀内容
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀藏头诗🍀空🍀内容
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+
+
+藏头诗 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+$访问 http://api.douqq.com/?key=YUNNZD1rM1p2OVdYaz1yMHF3M3VqT1pjZUFRQUFBPT0&msg=藏头诗%参数1%$
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+$访问 http://api.douqq.com/?key=YUNNZD1rM1p2OVdYaz1yMHF3M3VqT1pjZUFRQUFBPT0&msg=藏头诗%参数1%$
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+
+走势系统
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀开盘\r
+🍀赔付完毕\r
+🍀开\r
+🍀一分钟\r
+🍀封盘\r
+🍀清空走势\r
+🍀开奖数字[空]数字\r
+🍀PS开奖的提示全是文字\r
+PS需要主人权限!
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀开盘&#013;
+🍀赔付完毕&#013;
+🍀开&#013;
+🍀一分钟&#013;
+🍀封盘&#013;
+🍀清空走势&#013;
+🍀开奖数字[空]数字&#013;
+🍀PS开奖的提示全是文字&#013;
+PS需要主人权限!
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+开盘|赔付完毕
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+c:$读 黯魂初音未来主人/%群号%/%QQ%/主人 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%c%==0
+$调用 1 主人框架$
+返回
+如果尾
+d:$读 黯魂初音未来走势期/%群号%/走势 a 0$
+$写 黯魂初音未来走势期/%群号%/走势 a [%d%+1]$
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+★★第%d%下注开始★★\r
+【转账请备注下注内容】\r
+【下注的老板+接单员为好友】
+返回
+如果尾
+如果:%b%==2
+d:$读 黯魂初音未来走势期/%群号%/走势 a 0$
+$写 黯魂初音未来走势期/%群号%/走势 a [%d%+1]$
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+★★第%d%下注开始★★&#013;
+【转账请备注下注内容】&#013;
+【下注的老板+接单员为好友】
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+开
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+~~此期停止下注~~\r
+【没回复的老板请下期】\r
+【停止下注，马上开奖】
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+~~此期停止下注~~&#013;
+【没回复的老板请下期】&#013;
+【停止下注，马上开奖】
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+一分钟
+开
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+~~下注时间~~\r
+一分钟后开奖，老板速度。
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+~~下注时间~~&#013;
+一分钟后开奖，老板速度。
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+封盘|清空走势
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+c:$读 黯魂初音未来主人/%群号%/%QQ%/主人 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%c%==0
+$调用 1 主人框架$
+返回
+如果尾
+$写 黯魂初音未来走势期/%群号%/走势 a 0$
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+★★没下注的老板★★\r
+【请等待下次开盘。】\r
+【已清空全部走势信息】
+返回
+如果尾
+如果:%b%==2
+$写 黯魂初音未来走势期/%群号%/走势 a 0$
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+★★没下注的老板★★&#013;
+【请等待下次开盘。】&#013;
+【已清空全部走势信息】
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+开奖数字 [0-9]+
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+c:$读 黯魂初音未来主人/%群号%/%QQ%/主人 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%c%==0
+$调用 1 主人框架$
+返回
+如果尾
+如果:%参数1%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+★★此期开奖结果★★\r
+开奖数字:%参数1%\r
+【中奖请联系接单员】
+返回
+如果尾
+如果:%参数1%==2
+🍀MiKu【黯魂初音未来】配置🍀\r
+★★此期开奖结果★★\r
+开奖数字:%参数1%\r
+【中奖请联系接单员】
+返回
+如果尾
+如果:%参数1%==3
+🍀MiKu【黯魂初音未来】配置🍀\r
+★★此期开奖结果★★\r
+开奖数字:%参数1%\r
+【中奖请联系接单员】
+返回
+如果尾
+如果:%参数1%==4
+🍀MiKu【黯魂初音未来】配置🍀\r
+★★此期开奖结果★★\r
+开奖数字:%参数1%\r
+【中奖请联系接单员】
+返回
+如果尾
+如果:%参数1%==5
+🍀MiKu【黯魂初音未来】配置🍀\r
+★★此期开奖结果★★\r
+开奖数字:%参数1%\r
+【中奖请联系接单员】
+返回
+如果尾
+如果:%参数1%==6
+🍀MiKu【黯魂初音未来】配置🍀\r
+★★此期开奖结果★★\r
+开奖数字:%参数1%\r
+【中奖请联系接单员】
+返回
+如果尾
+如果:%参数1%==7
+🍀MiKu【黯魂初音未来】配置🍀\r
+★★此期开奖结果★★\r
+开奖数字:%参数1%\r
+【中奖请联系接单员】
+返回
+如果尾
+如果:%参数1%==8
+🍀MiKu【黯魂初音未来】配置🍀\r
+★★此期开奖结果★★\r
+开奖数字:%参数1%\r
+【中奖请联系接单员】
+返回
+如果尾
+如果:%参数1%==9
+🍀MiKu【黯魂初音未来】配置🍀\r
+★★此期开奖结果★★\r
+开奖数字:%参数1%\r
+【中奖请联系接单员】
+返回
+如果尾
+如果:%参数1%>=10
+🍀MiKu【黯魂初音未来】配置🍀\r
+您的开奖号码不对。
+
+斗图系统
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+开启斗图\r
+关闭斗图\r
+PS需要主人权限!
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+开启斗图&#013;
+关闭斗图&#013;
+需要主人权限!
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+开启斗图
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+c:$读 黯魂初音未来主人/%群号%/%QQ%/主人 a 0$
+如果:%c%==0
+$调用 1 主人框架$
+返回
+如果尾
+如果:%b%==1
+$写 黯魂初音未来斗图/%群号%/开关 a 1$
+🍀MiKu【黯魂初音未来】配置🍀\r
+开启🍀斗图功能🍀成功。
+返回
+如果尾
+如果:%b%==2
+$写 黯魂初音未来斗图/%群号%/开关 a 1$
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+开启🍀斗图功能🍀成功。
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+关闭斗图
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+c:$读 黯魂初音未来主人/%群号%/%QQ%/主人 a 0$
+如果:%c%==0
+$调用 1 主人框架$
+返回
+如果尾
+如果:%b%==1
+$写 黯魂初音未来斗图/%群号%/开关 a 0$
+🍀MiKu【黯魂初音未来】配置🍀\r
+关闭🍀斗图功能🍀成功。
+返回
+如果尾
+如果:%b%==2
+$写 黯魂初音未来斗图/%群号%/开关 a 0$
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+关闭🍀斗图功能🍀成功。
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+
+签到系统
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+打卡\r
+我的钱包\r
+群签到\r
+PS天天签到金币多多。
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+打卡&#013;
+我的钱包&#013;
+群签到&#013;
+PS天天签到金币多多。
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+打卡
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+c:$读 黯魂初音未来金币/%群号%/%QQ%/金币 a 0$
+d:$读 黯魂初音未来签到限制/%群号%/%QQ%/限制 a 0$
+e:%随机数100-500%
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%d%==%时间dd%
+🍀MiKu【黯魂初音未来】配置🍀\r
+您当天已经签到咯！
+返回
+如果尾
+如果:%b%==1
+$写 黯魂初音未来金币/%群号%/%QQ%/金币 a [%c%+%e%]$
+$写 黯魂初音未来签到限制/%群号%/%QQ%/限制 a %时间dd%$
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀签到成功🍀\r
+🍀获得金币:%e%\r
+🍀今天无法再签到了。\r
+🍀签到时间:%时间dd%号%时间HH%时%时间mm%分
+返回
+如果尾
+如果:%b%==2
+$写 黯魂初音未来金币/%群号%/%QQ%/金币 a [%c%+%e%]$
+$写 黯魂初音未来签到限制/%群号%/%QQ%/限制 a %时间dd%$
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀签到成功🍀&#013;
+🍀获得金币:%e%&#013;
+🍀今天无法再签到了。&#013;
+🍀签到时间:%时间dd%号%时间HH%时%时间mm%分
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+我的钱包
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+c:$读 黯魂初音未来金币/%群号%/%QQ%/金币 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+🍀查询成功🍀\r
+🍀金币余额%c%
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+🍀查询成功🍀&#013;
+🍀金币余额%c%
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+群签到
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+http://qiandao.qun.qq.com/qqweb/m/qun/checkin/index.html?_lv=37357&_bid=2166&_wv=1027&gc=%群号%\r
+点击这个链接进行群内签到吧！
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" url="http://qiandao.qun.qq.com/qqweb/m/qun/checkin/index.html?_lv=37357&_bid=2166&_wv=1027&gc=%群号%" flag="3"><item layout="1"><picture cover="http://abdd.818bk.pw./tp/%随机数1-95%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+点击卡片进入吧。
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+
+点歌系统
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+点歌🍀空🍀歌名\r
+MV🍀空🍀歌名
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+点歌🍀空🍀歌名&#013;
+MV🍀空🍀歌名
+PS一次消耗100金币。
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+点歌 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+c:$读 黯魂初音未来金币/%群号%/%QQ%/金币 a 0$
+如果:%c%>=100
+$写 黯魂初音未来金币/%群号%/%QQ%/金币 a [%c%-100]$
+$访问 http://huaji.mg.qvip.wang/jk/qqyy.php?msg=%参数1%&mode=xml$
+返回
+如果尾
+🍀您点了一首🍀\r
+
+
+MV .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+c:$读 黯魂初音未来金币/%群号%/%QQ%/金币 a 0$
+如果:%c%>=100
+$写 黯魂初音未来金币/%群号%/%QQ%/金币 a [%c%-100]$
+card:1
+$访问 http://tp1.zzidc.pw/mv.php?&msg=%参数1%$
+返回
+如果尾
+🍀MiKu【黯魂初音未来】配置🍀\r
+您金币不足100，无法使用！
+
+
+工具下载
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+文件名称:DIC工具箱\r
+文件大小:1.68MB\r
+工具实用:解密v8绿色版加密词库\r
+替换v8绿色版加密词库QQ\r
+制作v8绿色版加密的QQ\r
+更多的插件、接口、词库供下载。\r
+下载地址:Q群546281332
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+文件名称:DIC工具箱&#013;
+文件大小:1.68MB&#013;
+工具实用:解密v8绿色版加密词库&#013;
+替换v8绿色版加密词库QQ&#013;
+制作v8绿色版加密的QQ&#013;
+更多的插件、接口、词库供下载。&#013;
+下载地址:Q群546281332
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+
+复读系统
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+复读图片🍀空🍀链接\r
+文字复读🍀空🍀内容\r
+卡片复读🍀空🍀内容
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+复读图片🍀空🍀链接&#013;
+文字复读🍀空🍀内容&#013;
+卡片复读🍀空🍀内容
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+复读图片 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=%参数1%±
+
+文字复读 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+🍀MiKu【黯魂初音未来】配置🍀\r
+%参数1%
+
+卡片复读 .*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+%参数1%
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+
+文卡系统
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+切换文字\r
+切换卡片\r
+需要主人权限!
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+切换文字&#013;
+切换卡片&#013;
+需要主人权限!
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+腾讯系统
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+b:$读 黯魂初音未来模式/%群号%/模式 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+如果:%b%==1
+🍀MiKu【黯魂初音未来】配置🍀\r
+对方信息🍀空🍀QQ
+返回
+如果尾
+如果:%b%==2
+card:1
+<?xml version='1.0' encoding='UTF-8'?><msg serviceID="6" templateID="1" action="web" brief="[黯魂初音未来]要开心哦" flag="3"><item layout="1"><picture cover="http://xnapi.mumaa.xyz/upload/%随机数1-181%.jpg"/><title size="30" style="3" color="#32CD99"></title><summary style="3" color="#238EE3">公告:$读 黯魂初音未来公告/%robot%/公告 a 暂无公告$</summary></item><item layout="6"><hr/><summary style="4" size="30" color="daa520">
+🍀MiKu【黯魂初音未来】配置🍀&#013;
+对方信息🍀空🍀QQ
+</summary><hr/></item><source name="MiKu" icon=""/></msg>
+
+
+对方信息 [0-9]+
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+±img=http://q2.qlogo.cn/headimg_dl?dst_uin=%参数1%&spec=5±\r
+对方QQ:%参数1%
+
+恐怖医院
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+你签收了快递，打开是一个盒子里面有一封有些泛黄的信。你把信打开，同事也感兴趣的凑过来看，信上写道：你好，首先你接到这封信开始你的寿命已经不长了，想延长寿命吗？那就要成功完成我下面给你的任务了。任务：去XX路XX街XX号大楼，这是一家废弃的医院，我需要你帮我去三楼的产房和底楼的太平间取出我的死亡证明和出生证明，不去，后果自负。1.果断去2.果断不去
+
+末日求生
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+在一个阴暗的清晨，你被一阵阵刺激的吵闹声吵醒，你穿上衣服裤子后，漫不经心地打开了电视，你不停的切换着频道，突然，你看到了一则新闻，新闻里播放着某市爆发了生化病毒的消息，你应该1 打开窗户看看2 下去看看3 先吃下早餐4再去睡一觉
+
+
+拒收
+你与快递人员争吵了1小时，最后还是签收了，遭到白眼，回答错误，减去一跳条命。请回复《拒收失败》开始下一题
+
+
+拒收失败
+你把信打开，同事也感兴趣的凑过来看，信上写道：你好，首先你接到这封信开始你的寿命已经不长了，想延长寿命吗？那就要成功完成我下面给你的任务了。
+任务：去XX路XX街XX号大楼，这是一家废弃的医院，我需要你帮我去三楼的产房和底楼的太平间取出我的死亡证明和出生证明，不去，后果自负。1.果断去2.果断不去
+
+
+果断去
+你打开了网路，去百度搜了废弃医院了相关资料，并和你的同事开始了冒险。你在搜索栏里打了，废弃医院四个字，出来了很多条可参考的资料，你选择了一条你和你的情况相似的点了进去，但这是你的电脑黑屏了。1.去修电脑2.换笔记本重新搜索
+
+
+果断不去
+当天晚上你和你同事死了，死因不明，回答错误，减去一条命。请回复《果断不去失败》开始下一题
+
+
+果断不去失败
+你在搜索栏里打了，废弃医院四个字，出来了很多条可参考的资料，你选择了一条你和你的情况相似的点了进去，但这是你的电脑黑屏了。1.去修电脑2.换笔记本重新搜索
+
+
+去修电脑
+“咚”你们听到窗户被重重敲击的声音，你们走过去看，窗户上面渐渐显出了血字，你们消耗的时间太多了，你们感到一下子被抽取了氧气，死了，回答错误，减去一条命。请回复《去修电脑失败》开始下一题
+
+
+换笔记本重新搜索
+你麻利的打开电脑很快重新找到了刚才那个网页，并顺利点开。下一题，网站上写到，我现在正在医院里面，这也许是我的遗书了，如果不接收快递，也不会有这一系列的事，我的同伴已经死了，这个医院原来是一家很好的妇产科医院，因为一次手术，出现了一个畸形的婴儿，医院不负责，所以把婴儿埋了，,医院就开始发生灵异的事件，最后发生了火灾，医院就废弃了，我现在才知道，给我们写信的就是那个畸形的婴儿，他已经变成了冤魂，却不想离开人世，它要的是报仇，报仇！报仇！你同事的心动摇了。1.说服同事2.扔掉信
+
+
+去修电脑失败
+网站上写到，我现在正在医院里面，这也许是我的遗书了，如果不接收快递，也不会有这一系列的事，我的同伴已经死了，这个医院原来是一家很好的妇产科医院，因为一次手术，出现了一个畸形的婴儿，医院不负责，所以把婴儿埋了，,医院就开始发生灵异的事件，最后发生了火灾，医院就废弃了，我现在才知道，给我们写信的就是那个畸形的婴儿，他已经变成了冤魂，却不想离开人世，它要的是报仇，报仇！报仇！你同事的心动摇了。1.说服同事2.扔掉信
+
+
+扔掉信
+听到一声笑声，死了。。。。。。。。。。回答错误，减去一条命。请回复《扔掉信失败》开始下一题
+
+
+说服同事
+你刚准备关掉网页出发，同事发现了网页上的最后15个字，完成任务后真的可以延长寿命。下一题，说服同事继续冒险成功 真的可以延长寿命，我嘴里一遍遍重复到，同事说：“喂，回过神来，要走快走，不然我们随时都会死的。”对啊，我们时间不多了，我才反应过来，带上信和手电筒和同事出去了，但一出门才发现事情已经不对了，原来的楼道已不再是楼道，在你们面前的而是三道门，第一道门紧锁着，第二道门里面充满了花香和阳光，第三道门半虚掩着，给人一种阴森的感觉。1.第一道门2.第二道门3.第三道门
+
+
+扔掉信失败
+真的可以延长寿命，我嘴里一遍遍重复到，同事说：“喂，回过神来，要走快走，不然我们随时都会死的。”对啊，我们时间不多了，我才反应过来，带上信和手电筒和同事出去了，但一出门才发现事情已经不对了，原来的楼道已不再是楼道，在你们面前的而是三道门，第一道门紧锁着，第二道门里面充满了花香和阳光，第三道门半虚掩着，给人一种阴森的感觉。1.第一道门2.第二道门3.第三道门
+
+
+第一道门
+没有找到钥匙，由于时间过长，你的寿命到了，死了，回答错误，减去一条命。请发送《第一道门失败》开始下一题
+
+
+第二道门
+那门是假象，幻像消失后，你和你的同事从8楼跳了下去，回答错误，减去一条命。请回复《第二道门失败》开始下一题
+
+
+第三道门
+直接通往了废弃医院，恐怖的医院出现眼前。下一题，恐怖的医院映入眼帘，刚才还是白天，但现在的天空已经是死气沉沉的灰色了，眼前有一道墙和一扇门，门的前面铺满了盐，很久以前传说盐可以辟邪和抵御冤魂厉鬼，墙那边则很高，爬上去随时都有摔死的可能，倒也许会安全。1.走门2.爬墙
+
+
+第一道门失败
+恐怖的医院映入眼帘，刚才还是白天，但现在的天空已经是死气沉沉的灰色了，眼前有一道墙和一扇门，门的前面铺满了盐，很久以前传说盐可以辟邪和抵御冤魂厉鬼，墙那边则很高，爬上去随时都有摔死的可能，倒也许会安全。1.走门2.爬墙
+
+
+第二道门失败
+恐怖的医院映入眼帘，刚才还是白天，但现在的天空已经是死气沉沉的灰色了，眼前有一道墙和一扇门，门的前面铺满了盐，很久以前传说盐可以辟邪和抵御冤魂厉鬼，墙那边则很高，爬上去随时都有摔死的可能，倒也许会安全。1.走门2.爬墙
+
+
+走门
+抵御冤魂是不让里面的冤魂出来，所以门里面那个所谓的保安室里都是冤魂，还有一条狗的尸体，所以，死了,回答错误，减去一条命。请回复《走门失败》开始下一题
+
+
+爬墙
+墙上有暗门，顺利了走进废弃医院。下一题，进入废弃医院,第一眼看到的就是院子里的母子像,一位母亲抱着孩子,这原本应该是多么温馨的一个画面啊,现在看来确实如此的诡异,你们往大楼走去,1.先去产房拿出生证明2.先去太平间拿死亡证明3.继续寻找线索
+
+
+走门失败
+进入废弃医院,第一眼看到的就是院子里的母子像,一位母亲抱着孩子,这原本应该是多么温馨的一个画面啊,现在看来确实如此的诡异,你们往大楼走去,1.先去产房拿出生证明2.先去太平间拿死亡证明3.继续寻找线索
+
+
+先去产房拿出生证明
+母子相证明产房有厉鬼,所以死，回答错误，减去一条命。请回复《去产房拿出生证明失败》开始下一题
+
+
+先去太平间拿死亡证明
+找楼梯的过程中并没有危险,活着。下一题，走到楼梯口,发现门被反锁了, 左边有一个旧的生锈的梯子,都可以通向底楼的太平间,1.继续研究楼梯2.爬梯子下去——到这里的可以领取五跳命
+
+
+继续寻找线索
+浪费了很多时间,却一无所获,寿命耗尽,回答错误，减去一条命。请回复《继续寻找线索失败》开始下一题
+
+
+去产房拿出生证明失败
+走到楼梯口,发现门被反锁了, 左边有一个旧的生锈的梯子,都可以通向底楼的太平间,1.继续研究楼梯2.爬梯子下去——到这里的可以领取五条命
+
+
+继续寻找线索失败
+走到楼梯口,发现门被反锁了, 左边有一个旧的生锈的梯子,都可以通向底楼的太平间,1.继续研究楼梯2.爬梯子下去——到这里的可以领取五跳命
+
+
+继续研究楼梯
+你走到楼梯口,轻轻一推门,发现门是开着的,你走下了楼梯,到达目的地太平间,活着。下一题，你和你的同事往下走,感觉越来越冷,这时你同事突然抓住你,你吓的叫了出来,责骂同事,要死啊,干嘛抓我,你同事声音颤抖的说,我…我好像看到有黑影, 这是你心里一惊,安慰同事没事的一定是你看错了,这时你听到楼梯那头传来东西掉落的声音,1.回去看看2.继续往前走
+
+
+爬梯子下去
+当你和你同事爬到下半的时候,梯子断了,死了,回答错误，减去一条命。请回复《爬梯子下去失败》开始下一题
+
+
+爬梯子下去失败
+你和你的同事往下走,感觉越来越冷,这时你同事突然抓住你,你吓的叫了出来,责骂同事,要死啊,干嘛抓我,你同事声音颤抖的说,我…我好像看到有黑影,这是你心里一惊,安慰同事没事的一定是你看错了,这时你听到楼梯那头传来东西掉落的声音,1.回去看看2.继续往前走
+
+
+回去看看
+你们屏住呼吸,冤魂冲的很快,并没有注意你们,逃过一劫。下一题，你们害怕前面厉鬼会更多,决定去开窗,因为鬼会害怕阳光,你们继续往前走,但是地下室只有一个很高的窗,你们怎么都够不着,你们在旁边发现一个很大很破的梯子,和一个破旧的箱子,1.用梯子2.打开箱子3.再找别的工具
+
+
+用梯子爬上去
+梯子很旧很破，搬动它声音太响了，惊动了里面的厉鬼，死了,回答错误，减去一条命。请回复《用梯子爬上去失败》开始下一题
+
+
+打开箱子看看有没有可以用
+打开箱子，里面有一封泛黄的信件，上面还有一点点血迹。请回复《从箱子里拿出那封信》开始下一题
+
+
+再找别的工具
+里面走越来越黑，几乎看不了，厉鬼适应黑暗，死了,回答错误，减去一条命。请回复《再找别的工具失败》开始下一题
+
+
+从箱子里拿出那封信|再找别的工具失败|用梯子爬上去失败
+你从箱子里拿出那封信打开看，信上写道：你们还不错，到现在都没有死，怎么没去产房啊，呵呵，不过这里虽然没有很多厉鬼，但里面也有你好受的，也别指望开窗，你没那个能力，你应该庆幸你带了手电筒。1.继续试图打开窗户2.打开手电筒走进去
+
+
+继续试图打开窗户
+你从箱子里拿出一根长杆子，打开了窗户，厉鬼的确怕光，所以都附在了太平间的尸体里，冲出来咬你，死了,回答错误，减去一条命。请回复《继续试图打开窗户失败》开始下一题
+
+
+打开手电筒走进去
+照着光走了进去，发现太平间的门并没有锁，请回复《进入太平间》开始下一题
+
+
+继续试图打开窗户失败|进入太平间
+你推开太平间的门，浓烈的腐蚀味扑鼻而来，你和同事练练作呕，你并不知道畸形婴儿的名字，所以唯一的办法就是一个个去翻出尸体箱子看，太平间里的绿光照的你心里发慌，你拉开第一个抽屉，是分解的四肢拼凑出来的人，你看到他身体下面有一张纸。1.把尸体翻过来拿出那张纸2.把抽屉拉回去就当没有看到
+
+
+把尸体翻过来拿出那张纸
+是一张死亡证明，而且据同事说每个尸体下面都压了一张死亡证明。活着，请回复《翻抽屉》开始下一题
+
+
+把抽屉拉回去就当没看到过
+抽屉合上后，里面传来了敲抽屉的声音。你又把抽屉打开，里面的尸体爬了出来，对你冷笑，对你说你失败了吧，然后死了,回答错误，减去一条命。请回复《把抽屉拉回去就当没看到过失败》开始下一题
+
+
+把抽屉拉回去就当没看到过失败|翻抽屉
+你们几乎快看完了所有的抽屉，还是没有找到，突然你同事大叫了一声你的名字，你吓了一跳，问他什么事啊，一惊一乍吓死人的！你同事说不好意思哦，这个抽屉是锁着的。这有什么好叫的，你往同事那边走去，发现上面贴着一张纸，禁忌：千万不要打开这个抽屉，不然封存的鬼印就出来了。1.打开抽屉2.按照禁忌上说的不打开
+
+
+打开抽屉
+当你撬开锁打开抽屉的瞬间，一团血肉模糊的东西爬了出来，但是你们成功拿到了沾满血迹和肉酱的死亡证明。生。请回复《开始逃亡》开始下一题
+
+
+按照禁忌上说的不打开
+咚咚咚，抽屉里面传来剧烈的冲撞声，一团血肉模糊的东西冲破抽屉，冲向你们，将你们吞噬,回答错误，减去一条命。请回复《按照禁忌上说的不打开抽屉失败》开始下一题
+
+
+按照禁忌上说的不打开失败|开始逃亡
+你们害怕极了，躲着那团东西，往外面冲。离门很近了的时候，你的同事摔了下去，你同事大喊，救救我！！不要先走！你真的舍得抛弃关系如此亲密的同事吗?1.抛下同事2.去救同事
+
+
+抛下同事
+你冲了出去，关上了太平间的门，里面传来了同事的尖叫声，你流下了眼泪，但是，你还活着，请回复《逃亡成功》开始下一题
+
+
+去救同事
+是的，你死了。,回答错误，减去一条命。请回复《去救同事失败》开始下一题
+
+
+逃亡成功
+你手里紧紧拿着死亡证明，心里害怕极了，你擦掉眼泪，往产房出发。你刚走上楼梯，听到后面有脚步声。你转身一看，你同事正向你走来，天呐！你没死！你惊叫道，刚想向他跑去，发现他脸色不对，你停下了脚步，同事怒吼了一声，冲了过来。你跑到了一楼，往外面冲，你现在必须找一个人可以躲的地方。1.母子相后面2.树丛中
+
+
+去救同事失败
+你手里紧紧拿着死亡证明，心里害怕极了，你擦掉眼泪，往产房出发。你刚走上楼梯，听到后面有脚步声。你刚走上楼梯，却迟迟不见同事过来，你向他走了过去，并说喂，怎么走这么慢啊，这时你发现同事脸色不对，停下脚步，问他你怎么了？你同事一声怒吼向你冲过来。你跑到了一楼，往外面冲，你现在必须找一个人可以躲的地方。1.母子相后面2.树丛中3 回到一楼躲在角落
+
+
+母子相后面
+同事往母子相这边走来，但看到母子相却非常惧怕，走了。生,请回复《成功躲避》开始下一题
+
+
+树丛中
+即使杂草丛生，但不是瞎子都能看到的好么？回答错误，减去一条命。请回复《树从后面失败》开始下一题
+
+
+回到一楼躲在角落
+行尸走肉有灵敏的嗅觉，所以被发现了。,回答错误，减去一条命。请回复《回到一楼躲在角落失败》开始下一题
+
+
+成功躲避|回到一楼躲在角落失败|树从后面失败
+你见同事已经走远，从母子相后面走了出来，扶着母子相，呵呵呵呵呵呵，你听到了一个女人的笑声。你心里一紧你抬头一看，母子相的女人正对着你冷冷的笑着，你吓的尖叫了起来并且惊动了你的同事他从大楼里跑了出来，你吓的拼了命往前跑那个女人对你说，呵呵，跑什么刚不是离我很近的么回来啊。不要！！你大声喊着。不要么，呵呵，话音刚落，整个医院里都传来了婴儿的哭声，这声音多么刺耳。不知不觉，你晕了过去。当你醒来时，你发现你在一个小屋子里。面前有一个中年人正在帮你的同事抽血。1.趁机逃跑2.留下询问
+
+
+趁机逃跑
+外面依旧是婴儿的哭声所以一出去就被杀死了,回答错误，减去一条命。请回复《趁机逃跑失败》开始下一题
+
+
+留下询问
+那位中年人是好人，成功得救了,请回复《开始询问》开始下一题
+
+
+趁机逃跑失败|开始询问
+你是谁你语气略带试探的问道别多问先来帮我忙把镜子拿过来那个中年人严肃的说道你只好先去拿镜子你递给那个中年人只见中年人拿着那镜子照向同事，一道金光闪现啊你同事尖叫了起来，尖叫声渐渐地停了，你往中年人那边看去，同事躺着不动了你在做什么！”你对中年人大叫道“我在帮他消除体内的东西，他一会儿就醒了哦你发现自己误会他了感到有点愧疚“那个……我同事不见了。”你对中年人说。那位中年人转过头去一看，喃喃的说：“哎呀，完了。”这时却传来了敲门声。“喂，是我啊，我是你同事，快放我进来，再不开门我要被杀死了。1开门2不开门
+
+
+开门
+门外真的是你的同事，他活着进来了,请回复《去开门成功》开始下一题
+
+
+不开门
+同事又被附身了，最后的遗言是我恨你，请回复《不去开门》开始下一题
+
+
+去开门成功
+同事一进来就对你大叫：“不要关门，不要关门！！”你对他说：“你疯了么？不关门，你要我们都死啊！”中年人转过头来，看了一眼同事，突然对你大喊：“把他赶出去！快！把他赶出去！马上！”同事却满脸疑惑的说：“我怎么了啊？干嘛把我赶出去?1.赶出去2留下来
+
+
+不去开门
+你觉得自己做错事了，听到同事的那一句“我恨你”，心里难过极了，你决定把同事的尸体拉进来，不让他在受到冤魂厉鬼的吞噬。你打开门，外面一片安静，你小心翼翼的把同事的尸体拖了进来。中年人转过头来，看了一眼同事，脸色大变大喊道：“扔出去！快！扔出去！马上!1.扔出去2留下来
+
+
+赶出去
+中年人是正确的，同事突然不见了，显然是被冤魂带出去的。当然是附身着进来的，当你把你的同事赶出去的一刹那他眼睛变红，要向你冲过来，幸好你及时关上了门，回复《关门成功》开始下一题
+
+
+扔出去
+中年人是正确的，同事突然不见了，显然是被冤魂带出去的。当然是附身着进来的，当你把你的同事扔出去的一刹那他眼睛变红，要向你冲过来，幸好你及时关上了门，请回复《关门成功》开始下一题
+
+
+留下来
+留下来开始几分钟的确没事，渐渐的同事开始不对劲了，眼睛开始变红，突然他站了起来，嘴里念叨着：“报仇！报仇！！”向你和中年人冲了过来，你们死了,回答错误，减去一条命。请回复《留下来失败》开始下一题
+
+
+留下来失败|关门成功
+你冲动的跑过去抓着中年人为什么为什么会这样你不是帮他了吗他怎么还会这样中年人淡定的推开你的手这么厉害的冤魂，如果这一照就可以消除，我也不会躲在这里了你你很激动但却说不出些什么，当你平静下来，你对他说我们去拿出生证明吧呵你死亡证明都没拿到就拿到出生证明，去找死？”你不服气的从口袋里拿出死亡证明，中年人脸上出现了一丝笑意却又马上收回了。“走，我们往后门走。1.独自往前门走2.跟着中年人往后门走
+
+
+独自往前门走
+门外一片安静，显然同事已经不在了。你紧紧的握着死亡证明，来到了二楼。请回复《查看二楼》开始下一题
+
+
+跟着中年人往后门走
+你们刚出后门，中年人就一把抢过你手中的死亡证明，并拿出匕首把你杀了,回答错误，减去一条命。请回复《跟着中年人往后门走失败》开始下一题
+
+
+查看二楼|跟着中年人往后门走失败
+你来到了二楼，一片漆黑。你按动手电筒的开关，手电筒亮了几下，就暗了。“该死的，没电了！”你说着，尽量靠边往前走。“呵呵呵呵呵呵，呵呵呵呵……”那熟悉又阴森的笑声又响起了，母子相！！这是你的第一反应。该怎么办，怎么办？现在二楼都走了一半了，不可能再回到那个小屋了，你该躲到哪里去呢?1.伸手不见五指的办公室2.住院病房3.原地不动
+
+
+伸手不见五指的办公室
+你走了进去，里面一片漆黑，你什么也看不见。“呵呵呵……”你又听到了那个笑声，你感觉到背后凉凉的。“你真聪明啊，你来找我了……”你转过身去看，母子相就在你后面对着你笑。死,回答错误，减去一条命。请回复《伸手不见五指的办公室失败》开始下一题
+
+
+住院病房
+你找了一个床铺躺了下来，装死。母子相从办公室走了出来，正当你心里庆幸你没有躲在办公室的时候，母子相走进了住院病房。你屏住呼吸，躺着装死。母子相在病房里走了一圈，就出去了。生，请回复《装死成功》开始下一题
+
+
+原地不动
+母子相从办公室里走出来一眼就看到你了。死,回答错误，减去一条命。请回复《原地不动失败》开始下一题
+
+
+伸手不见五指的办公室失败|原地不动失败|装死成功
+脚步声渐渐没了，你从病房里走了出来。刚踏出住院病房的门，你撞到了一个东西，你害怕极了，你摔在地上，眯着眼睛看那是什么。中年人，你撞到了中年人！中年人看到是你，对你说：“喂，你怎么跑到这里来了？刚找你呢！”1.保护好死亡证明逃跑2.和中年人一起去找出生证明
+
+
+保护好死亡证明逃跑
+中年人察觉你发现他的计划，气急败坏。拿出匕首，飞奔了过来。你来不及闪躲，被刺中心脏。你躺在地上流着血，亲眼看着中年人抢走你的死亡证明,回答错误，减去一条命。请回复《保护好死亡证明逃跑失败》开始下一题
+
+
+和中年人一起去找出生证明
+你知道中年人的计划，但并没有拆穿。因为你知道，只要你不说中年人在拿到出生证明之前，你是不会有任何生命危险的。于是你们安全的到了三楼。请回复《到达三楼》开始下一题
+
+
+保护好死亡证明逃跑失败|到达三楼
+刚走到三楼，你们听到了一个阴冷的声音。“真难得，你们来了啊，母子相竟然没找到你们，真是奇怪了啊。”你们抬头一看，原本那团血肉模糊的东西，已经现出它畸形的模样了。它手中还提着你的同事。1.冲进去2.往楼下跑
+
+
+冲进去
+你们跑到一个未知的房间，关死了门。“咚咚咚……”外面传来了那东西撞门的声音。过了一会儿渐渐停止了，显然畸形的婴儿放弃了。生,请回复《冲进去成功》开始下一题
+
+
+往楼下跑
+正巧撞见了母子相，母子相一阵阴笑，你们尝试了最恐怖的折磨与死亡的真谛，死,回答错误，减去一条命。请回复《往楼下跑失败》开始下一题
+
+
+冲进去成功|往楼下跑失败
+你不知道这个房间是干嘛的，当你刚打开手电筒，就看到中年人在翻箱倒柜的找着什么。你上前去询问：“喂，你在找什么？”“你给我闭嘴！”中年人没好气的说。你只好拿着手电筒四处看看其他的。你看到了柜子上诡异的排放着胚胎、工具还有很多很多抽屉，你不小心被什么东西绊了一跤，撞到了柜子。这时，上面有一张纸飘了下来。1.叫上中年人一起看2.独自拿起纸
+
+
+叫上中年人一起看
+没错那张纸就是要找的出生证明。中年人看到你找到了出生证明，冷冷的对你说了一句：“哼，你已经没有利用价值了！”咚的一声，你眼前一片漆黑。死,回答错误，减去一条命。请回复《叫上中年人一起看失败》开始下一题
+
+
+独自拿起纸
+发现这是出生证明，偷偷的放在口袋里，假装成若无其事的样子继续找着。,请回复《独自拿起纸纸成功》开始下一题
+
+
+独自拿起纸成功|叫上中年人一起看失败
+你沉浸在假装的氛围里，并没有在意中年人。当你转过头去看中年人的时候发现中年人盯着你看很久了，你心里一慌。中年人正慢步向你走来，走到你身旁时低声对你说：“现在乖乖的把出生证明和死亡证明都交出来！”1.拿东西敲他2.交给了他死亡证明和出生证明
+
+
+拿东西敲他
+但力气没有他大，被反杀,回答错误，减去一条命。请回复《拿东西敲他失败》开始下一题
+
+
+交给了他死亡证明和出生证明
+他意外地没有杀你,回答错误，请回复《成功1》开始下一题
+
+
+拿东西敲他失败|成功1
+你们并没有离开那个房间，你下定了决心，要抢回中年人手里的出生证明和死亡证明。你变小了幅度继续寻找着。你发现墙角有很多的干柴，你决定把那些干柴收起来，你藏在了衣服里。中年人转过来对你说：“我们该出去了。”你点了点头跟在后面。1.直接把出生证明和死亡证明抢回来2.跟着中年人再走一段。
+
+
+直接把出生证明和死亡证明抢回来
+你们太大的动静引起了畸形婴儿的注意，发现了你们，死,回答错误，减去一条命。请回复《直接把出生证明和死亡证明抢回来失败》开始下一题
+
+
+跟着中年人再走一段
+你们悄悄来到了二楼，开始躲避母子相的攻击。请回复《成功2》开始下一题
+
+
+直接把出生证明和死亡证明抢回来失败|成功2
+你们小心的来到了2楼，由于你的注意力都集中在你衣服里藏的干柴，并没有注意到脚下。“咔嚓”，你不知踩到了什么东西，你还没来得及低下头看踩到了什么，就听到了婴儿的哭声。接着是一阵笑声：“呵呵呵呵呵呵呵呵呵，你把我的孩子吵醒了！”那是母子相的声音！你害怕极了，这时中年人对你大喊：“快点过来，到这个房间来！”1.跟着中年人跑进那个房间2.冲过去抢走中年人手中的出生证明和死亡证明
+
+
+跟着中年人跑那个房间
+中年人看你冲了过来，立刻把门关上，你被关在了门外。被母子相追上来，杀死了。中年人趁着你被杀的时候，逃走了。死，回答错误，减去一条命。请回复《跟着中年人跑那个房间失败》开始下一题
+
+
+冲过去抢走中年人手中的出生证明和死亡证明
+中年人一直在等你进来，可以有机会逃跑，没想到你竟然没有跟着进来。中年人也没有来得及关门，母子相冲了进去，把中年人杀了，成功的跑到一楼。生。请回复《成功3》开始下一题
+
+
+跟着中年人跑那个房间失败|成功3
+你的心脏受到了打击，还在扑通扑通跳个不停，你现在又饥又渴，然后在墙壁上摸索，突然摸索到一个开关，你一按下去，先是开灯，然后墙上出现了三个穴，三个穴都一模一样，你回头看了一下，有一个包包，然后你把包包捡起来，打开，发现里面有一只手电筒两个面包，一瓶水和一瓶牛奶，还有一本笔记本，里面什么也没有写，还有一支笔还有一面镜子，接着又有一袋盐，你惊叹了一下，谁留下来的，这么多东西。请发送成功4开始
+
+
+成功4
+你看着墙上的三个穴口，现在必须要选一个跳进去，这时候三个穴口的顶上都出现了三条语录，第一的是：快进来!第二个：不要进1也不要进我这里！去3!第三个：第一个是危险的！来我这里，你将选择:1第一个洞穴2第二个洞穴3第三个洞穴
+
+
+第一个洞穴
+你们的选择真明智！亲们肯定有听过最危险的地方就是最安全的地方吧！成功甩掉畸形婴儿。所以，孩纸你胜了。——生,请回复《成功4》开始下一题 
+
+
+第二个洞穴
+你们失败得最悲哀，里面是母子相大人，母子相一把抓着你，把你变成她怀里的孩子，那就是说没有下一个顶替者你就得一辈子在她的怀抱里呆着。——死,回答错误，减去一条命。请回复《失败1》开始下一题
+
+
+第三个洞穴
+第一个有此地无银三百两的嫌疑，这个也可以说是此地无银三百两……不过第一个是好的，很直白，第三个下面是个绞肉机，里面有许多和你一样被搅成肉馅的人们，你一进去，没听完“欢迎来到绞肉机”，你才听到欢迎来到，你就被搅成肉馅了……——你猜死没死~,回答错误，减去一条命。请回复《失败2》开始下一题
+
+
+失败1|失败2|成功4
+不过相比畸形婴儿，你肯定没他的实力强，他肯定在这里混熟了许多人，而且你钻到这里来他肯定也知道，你没滑多久，就听到了那堵墙发出的声音，又是那个令你恐惧的声音，咚咚咚，一声一声，你感觉你的心马上跳出来了，暗想，不要这么快就进来！过了七八秒，滑到尽头了，你立马站起来跑，狂跑啊狂跑，突然撞到了某物，你惊吓得大叫啊啊啊啊啊啊！某物伸出手捂住你的嘴巴，弯下腰对你说：“嘘小声点，被畸形婴儿发现可不好。发成功第二页查看
+
+
+成功第二页
+看见发着血光的物体必须屏着呼吸。”他顿了一下子，又说：“我也被困在这里了。”你若有所思地点点头，问他饿不饿，渴不渴，他耸了耸肩说他吃过东西了，你感觉你找到一个如同事般好的人，正在你这么想的时候，他用手指捅了捅你，问：“你叫什么名字啊？”
+你不回答，因为看到前面一片明亮，诶？是要到终点了吗？你再也忍受不了这种折磨了，可是一走近却是三个人，在争吵一张“死亡证明”，你走近一看，吓了一跳，和自己这一张一模一样，连上面专有的污垢都一模一样，那三个人是一位老太太一位青年人还有一位小女孩，这时你会……1.告诉他们这张纸是假的2.捡起那张纸
+
+
+告诉他们这张纸是假的
+他们没有你想得这么恐怖，只是你后遗症太重了，婆婆竟然还冷静的笑笑，说：“哎……原来是假的啊，刚刚还害了我们在这里吵了半天，小伙子你和我们一起吧。姑娘你自己冒险去吧！”你尽管很疑惑，但还是为了自己的生命着想……——生
+,请回复《成功5》开始下一题
+
+
+捡起那张纸
+他们一同以为你是这里的工作者，有点脑子缺陷……不分青红皂白的把你和你旁边的这位一起推下了绞肉机，又是重复着那句话……——死
+,回答错误，减去一条命。请回复《失败3》开始下一题
+
+
+失败3|成功5你微笑的和他们再见，然后又继续往前走，可是那片亮光竟然很奇异的失踪了，你的心跳马上又开始怦怦跳，你又跺了跺脚，让自己不这么害怕，你甩甩头，突然又看见了一台奇异的机器，你连忙跑过去，看到的是一个装满了人肉的绞肉机！你大惊失色，突然后面传来了母子相的笑声，双重的恐惧使你的脚不停地颤抖，你想着用什么对付她？1手电筒2镜子3牛奶
+
+
+手电简
+母子相好歹也是只鬼吧……会怕光对不，但是前面不是说了光刺激到鬼一下子就咬死你了……但是母子相一女的怎么能这么残忍……她会把你吃掉。——死
+
+
+镜子
+你大手一挥！拿出了一面镜子……母子相一下子被自己的样貌给震惊了，忙从你的手上拿走了镜子，你不敢大声嚷嚷，留下母子相在那里自恋了。——生请回复《成功6》开始下一题
+
+
+牛奶
+你对她说“来吧，喝瓶伊利牛奶，蒙牛牛奶有害身体。”那母子相幽幽的说了一句话：“你没听过十万个冷笑话里的串串星球么！”她就觉得你要伤害她，一口吃掉你了。
+
+
+成功6
+你把镜子给她了之后，目瞪口呆地看了她三秒，觉得很奇异，母子相竟然觉得自己长得很好看！！但是有点危险，先走为妙，马上就走了，走了一段路，暂时摆脱了母子相，但你刚刚放松了一会儿，上面就有几滴水滴下来，吓得你一下子蹦起来，却碰上了一个软绵绵的东西，你抬头一看，一个吊死的人，全身血红，滴下来的是。。。。尸油嘛！？当你疑惑时，那只东西说话了，她说：“呵呵。。别怕我，我会帮助你的，给我点牛奶吧。。。。”你有点犹豫。1 一个已经吊死的人给了吧2 有阴谋绝对不给
+
+
+一个已经吊死的人给了吧
+由于你太心软了，那只女尸活过来了，依然是那副鬼样子，尽管你怎么求饶，她想也不想把你弄到绳子上，你就将此成为了一吊shi鬼。。 
+
+
+有阴谋绝对不给
+看了1的同学们都知道。有阴谋，不给，女鬼说了几句话之后就全身软软的了，掉下了一东西，那就是。。。。牛奶——生请回复《成功7》开始下一题
+
+
+成功7
+你差点仰头长啸了。你勒个去。他自己不是有牛奶么，和你要这么多有个鬼用啊。。但是不可以有东西也不要啊，想着捡起那包有点诡异的伊利牌牛奶，从挂掉的人身上拿到的东西总该有点恶心吧。。你想着里面会不会有尸油神马的，慢慢走，听到了一种吹泡泡的声音，你沿着声音，走到了一个井旁，发现一个眉目清秀的小女孩在吹泡泡。【哦凑着泡泡声音传得好远】你这时需要。。 
+[1、]、过去询问应该怎么走 
+[2、]、置之不理。
+
+
+公布答案 
+[1、]、小女孩，又长又卷的睫毛抬起来，看了你一下，笑着对你说：“=w=。。往右边走，有个房子，你就进去吧，你会有惊喜的” 
+[2、]、哦凑你不询问你是打算要在这里一辈子呆下去么！
+
+
+你按照小女孩的指示去行事了，果然看到了一间屋子，但是觉得女孩有点诡异，终究没有敢大胆的走进去，而是在门口，发现里面传来三声有规律的敲门声“笃笃 
+笃”有规律，不失惊悚，凭你的常识，知道这是有人在求救，你怕遇到什么像畸形婴儿什么的鬼东西，不敢开门，可是如果真的是自己的同伙呢，你犹豫了，但是你需要大胆的决定 
+[1、]、推门而入，不过碰到什么恐怖的东西也不一定 
+[2、]、不进入屋子，从窗子里看看，不过可能容易被吓死。。
+
+
+公布答案 
+[1、]、你破门而入了，发现一个皮全部剥开了的人，血肉模糊使你眼前一黑，就什么都不知道了——死【来吧我来解释一下，这个是因为突然闯进来那个人受了惊吓然后，施了法术（强大了）然后你才眼前一黑的，并不是什么被吓晕的=w=】 
+[2、]、喂你傻啊你。。都经历过这么多冒险了还怕个鬼啊，除非你是突然被吓到的。。——生
+
+
+在窗子里看见里面有个皮全部剥开了的人，顿时吓傻了，转身看看那小女孩还在不在，发现突然不见了.反而多出了一个小黑屋.你会？ 
+1.进去 
+2.等着 
+3.走开继续探险
+
+
+公布答案： 
+1.进去你发现有个叫“小贞”女孩的被纸团闭住了嘴巴，双手双脚都被捆住了，等于被绑架.成功营救这“小贞”——活 
+2.等的过程中贞子出来把你杀了——死 
+3.听到“呵呵呵呵呵呵呵呵”一声死了
+
+
+你救出那位女孩时.女孩指着另一门，阴森森的说：那里..你被抓走的同事就在那里..。”你想不通这小女孩怎么知道你有个同事被抓走了，想来想去要不要去， 
+1.不去 
+2.去 
+3.离开这座屋子
+
+
+公布答案： 
+1.正好母子相闯入了这屋子——死 
+2.进去后，里面是一条地道，墙上挂着个牌子上面写着“没想到你竟然能到这里.你的同事就在地道尽头的学校里.”地道尽头的确是有一所学校.我加快步伐.没想到地道旁边的一扇小门突然间的打开，我被吓的摔倒了.里面出来的竟然是贞子..贞子说“呵呵呵呵呵呵..我需要一把刀..你能借我用一用么...” 
+1借。2不借
+
+
+公布答案撒~~ 
+1.贞子拿了你的刀.结果把你的头砍下来.然后全身体解剖——死 
+2.你没有借给贞子.拿出符咒.把贞子定住了.——活
+
+
+打开窗户看看
+你的头被僵尸鸟叼走了 死
+
+
+下去看看
+你难道不知道楼下有僵尸吗？ 死
+
+
+先吃下早餐
+对了，应该补充一下能量吗嘛 活，发送《出门》开始下一题
+
+
+再去睡一觉
+你去睡了一觉，醒来的时候，僵尸已经把你家门砸开了 死
+
+
+出门
+这时，你决定出门，你下了楼以后，发现没有几个丧尸，你决定：1 找个大超市2 去个便利店3 去找找幸存者 
+
+
+找个大超市
+超市里平时人都很多，难道你不知道吗 死
+
+
+去个便利店
+good! 那些小便利店平时就没有人，现在也不会有很多僵尸在里面 活，发送《便利店》开始下一题
+
+
+去找找幸存者
+你现在缺乏物资。。。 死
+
+
+便利店
+你一路小跑来到了便利店，由于恐惧，你不敢啦开便利店的门，你应该1小心翼翼地走进去2到别的地方去3 大喊一声我信春哥4 回去
+
+
+小心翼翼地走进去
+你小心翼翼地走了进去，突然！一个隐藏在门后的僵尸想你袭来。。。死
+
+
+到别的地方去
+你决定去别的地方，最终，你在饥饿中死亡！ 死
+
+
+回去
+回去！？那你出来干什么？ 死
+
+
+大喊一声我信春哥
+你刚狂叫完，便利店里的僵尸圈出来了， 你用力地砍击着僵尸的脑袋，你活下来了 活，发送《离开便利店》开始下一题
+
+
+离开便利店
+你刚要离开便利店，就听到厕所有一阵阵哭声，你是个善良的人，你应该：1 过去看看2 大事不好快走为妙3 问里面有人吗？
+
+
+过去看看
+你走了过去，没想到你被哭泣女鬼杀了！ 死
+
+
+大事不好快走为妙
+你很快的走了，没有事发生。活，发送《上路》开始下一题
+
+
+问里面有人吗?
+你走了过去，没想到你被哭泣女鬼杀了！ 死
+
+
+上路
+你离开了便利店，打算去找幸存营，你来到了一个三岔路口，你该走:1 第一条路2 第二条路3 第三条路
+
+
+第一条路
+你走了第一条路，迷路了。 死
+
+
+第二条路
+你忘第二条路走了，看到了远处的幸存营。 活，发送《上路2》开始下一题
+
+
+第三条路
+你走了第三条路，迷路了。 死
+
+
+上路2
+你继续在外面行走着，你感到非常的疲惫，你决定：1 去旁边的住宅休息2 去旁边的便利店休息3 去旁边的4s店休息4 继续走
+
+
+去旁边的住宅休息
+你去了住宅里面，里面有很多僵尸。 死
+
+
+去旁边的便利店休息
+便利店里有很多僵尸！ 死
+
+
+去旁边的4s店休息
+你去了4s店，你碰到了一个妹纸！ 活，发送《妹纸》开始下一题
+
+
+继续走
+你走着走着，就睡了。 死
+
+
+妹纸
+妹纸告诉你：楼上有很多僵尸，千万不要上去！你决定：1 相信她2 不相信她3 叫她一起上去杀僵尸
+
+
+相信她
+你相信了她，她告诉你他她叫樱熙雨。+10好感度，发送《食物》开始下一题
+
+
+不相信她
+你不相信她，离开了，后来被僵尸群包围了。 死
+
+
+叫她一起上去杀僵尸
+你相信了她，你知道了她叫樱熙雨，然后，你和她干掉了僵尸们 好感度+5，发送《食物》开始下一题
+
+
+食物
+你们搜寻食品，你搜寻到了:1 压缩饼干（已开封）2 罐头3 鱼干！？4 面包（已开封）
+
+
+压缩饼干
+这饼干上有毒，你们被毒死了 死
+
+
+罐头
+你们饱饱地吃了一餐。 活，发送《活下去》开始下一题
+
+
+鱼干
+鱼干太咸，你们被咸死了。 死 
+
+面包
+面包上也有毒 死 
+
+
+活下去
+你们很快就要离开M市了，樱熙雨告诉你，她有一辆车，就是没油了，让你去加油站看看。你决定：1 自己去2 让她去3 一起去4 偷偷跟着她去
+
+
+自己去
+你让她留在了这里，等你带着油回来，她已经变成了僵尸 死
+
+
+让她去
+你让她去找油，好感度减5，发送《启程》开始下一题
+
+
+一起去
+你们一起去找油了，她十分开心 好感度加10，发送《启程》开始下一题
+
+
+偷偷跟着她去
+你偷偷地跟她去了加油站，你无意中捡到MP5！ 活，发送《启程》开始下一题
+
+
+启程
+你们启动了汽车，你望着窗外，心里产生了一股莫名的忧伤。你们决定走：1 高速公路2 小路3 国道4 街道
+
+
+高速公路
+高速公路上有很多被堵住的车，你们撞上去了。 死
+
+
+小路
+小路里有很多僵尸，你们被吃了。 死
+
+
+国道
+你们在国道上顺利的开着车，你们到达了幸存营 活，发送《幸存者》开始下一题
+
+
+街道
+街道上到处都是僵尸和烂车，你们完了。 死
+
+
+幸存者
+你们终于来到了幸存营，你们进去了，和警卫交谈了一会，见到了汉克（领导），他告诉你们，去二楼休息，千万不要去三楼，你决定：1 去三楼看看2 去二楼休息3 听听樱熙雨的意见4 随便逛逛
+
+
+去三楼看看
+你们去了三楼，被警卫杀了。 死
+
+
+去二楼休息
+你们去休息了，被杀手杀了。 死
+
+
+听听樱熙雨的意见
+你问了问樱熙雨，她和你出去逛了逛。好感度加10 活，发送《去外面逛逛》开始下一题
+
+
+随便逛逛
+你们出去逛了逛，你因此活了下来 活，发送《去外面逛逛》开始下一题
+
+
+去外面逛逛
+你们在外面逛了逛，就回去休息了，半夜，一大群僵尸，僵尸鸟，僵尸狗，僵尸猫和老鼠进攻了幸存营。如樱熙雨好感度低于15，将开通支线。如果樱熙雨好感度高于15，继续主线。
+
+
+支线
+樱熙雨（你）你由于和男主（叶枫）闹翻，独自一人离开了幸存营，发送《支线1》开始下一题
+
+
+支线1
+你离开了幸存营后，开车前往了军营，在路上，你看见了一位军人倒在地上，你决定：1 过去看看2 把他等到车上3 在远处问他
+
+
+过去看看
+你走国去看了看，刚要转身，他咬了你一口，你死了 死
+
+
+把他等到车上
+你把他等到了车上，他突然咬你一口，你死了 死
+
+
+在远处问他
+你问了他，他丢过来一份地图，然后，他自杀了。 活，发送《支线2》开始下一题
+
+
+支线2
+你和军人道别后，你继续前行着，突然，你看见周围聚集了很多鸟，车这时也抛锚了，你决定:1 马上下车看看2 等鸟飞完了下车看看3 大声求救4 冲入旁边的书店里
+
+
+马上下车看看
+那些僵尸鸟把你吃完了。 死
+
+
+等鸟飞完了下车看看
+鸟飞完了，僵尸却来了。 死
+
+
+大声求救
+我无语了，见过蠢蛋，没见过这样的蠢蛋。 死
+
+
+冲入旁边的书店里
+你迅速的冲入了书店， 活，发送《支线3》开始下一题
+
+
+支线3
+你进入了书店后，你看见了许多血迹和爪痕，这时左边房间响出了乎乎声，右边响出了咔咔声，楼上响出了呃呃声，你应该：1 上去2 往左走3 往右走4 回去
+
+
+上去
+你被楼上的僵尸包围了 死
+
+
+往左走
+你碰到了生化幽灵 死
+
+
+往右走
+你看到了打印机 活，发送《支线4》开始下一题
+
+
+回去
+回去的路上碰上一群僵尸 死
+
+
+支线4
+你走进了右边的房间，原来是一个打印机发出的声音，你在这里发现了：1 机密文件2 一把M9手枪3 黄金巨斧4 修车工具5 一个RPG火箭筒单选
+
+
+机密文件
+你又不是间谍 死
+
+
+一把M9手枪
+手枪没子弹 死
+
+
+黄金巨斧
+你做梦呢？ 死
+
+
+修车工具
+good!选这个的同学真聪明，因为车刚才抛锚了 活 车修好，发送《支线5》开始下一题
+
+
+一个RPG火箭筒
+只能说，选这个的是SB。 死
+
+
+支线5
+你修好了汽车后，很快的开走了。你一路上开车撞了几个僵尸，后来在一个路口看见了一个熟悉的身影，你觉得他是：1 男主角2 土匪3 你老爸4 汉克5 僵尸
+
+
+男主角
+没错！是叶枫！你和他合并一队，支线归入主线，，发送《支线二》开始下一题
+
+
+土匪
+死
+
+
+你老爸
+死
+
+
+汉克
+死
+
+
+僵尸
+死
+
+
+支线二
+你和樱熙雨闹了分歧，结果，你们分开了，发送《支线6》开始下一题
+
+
+支线6
+你缓慢地行走着，突然，你听见远处有枪声，你决定：1 过去看2 绕道走3 偷偷地去看
+
+
+过去看
+你走了过去，原来是一个大兵在打僵尸 活，发送《支线7》开始下一题
+
+
+绕道走
+你不小心碰上了僵尸 死
+
+
+偷偷地去看
+你不小心碰上了僵尸 死
+
+
+支线7
+大兵兄到完僵尸，就用他的枪对准了你！你决定：1 用MP5杀了他2 用诺基亚3 跑啊4 贝爷相片5 曾哥附体
+
+
+用MP5杀了他
+等你拔出枪，大兵兄早把你干掉了。 死
+
+
+用诺基亚
+你把他炸死了。。 活，发送《支线8》开始下一题
+
+
+跑啊
+你跑得过子弹吗？ 死
+
+
+贝爷相片
+你把他吓得屁滚尿流 活，发送《支线8》开始下一题
+
+
+曾哥附体
+你个白痴。。。。 死
+
+
+支线8
+你捡到了他的枪，你接着走，你来到了一个4s店，这时，远处出现了许多僵尸，你决定：1 用枪射2 用诺基亚3 进去4 贝爷相片
+
+
+用枪射
+你没子弹了。。 死
+
+
+用诺基亚
+诺基亚也炸死了你 死
+
+
+进去
+你进入了4S店 活，，发送《支线9》开始下一题
+
+
+贝爷相片
+贝爷相片不见了！ 死
+
+
+支线9
+你进入了4S店后，干掉了里面的僵尸，你发现外面的僵尸在砸门，你应该用：1 汽车壳堵门2 铁桶堵门3 钢筋堵门4 无视僵尸
+
+
+
+汽车壳堵门
+汽车壳够重，僵尸进不来 活，发送《支线10》开始下一题
+
+
+铁桶堵门
+铁桶太轻，僵尸包围了你 死
+
+
+钢筋堵门
+钢筋也很重，僵尸进不来 活，发送《支线10》开始下一题
+
+
+无视僵尸
+你是脑残吗？ 死
+
+
+支线10
+你开着汽车唱着歌，打着僵尸梦着枪，前面出现了一个地方，是：1 三岔路口2 十字路口3 国道2
+
+
+三岔路口
+活，发送《支线11》开始下一题
+
+
+十字路口
+死
+
+
+国道2
+死
+
+
+支线11
+你们进入了军营，找到了直升机，有三个按钮，哪个是启动的呢？是：1 蓝色2 黑色3 红色
+
+
+黑色
+活，发送《主线》开始下一题
+
+
+蓝色
+死
+
+红色
+死
+
+
+主线
+你们开着直升机，在海域上空飞行着，突然，海面上一个人叫你们跳下直升机，你决定：1 相信他2 不相信他
+
+
+相信他
+你们跳了下去，发现直升机后的僵尸 活，发送《主线2》开始下一题
+
+
+不相信他
+你们不相信他，随后被直升机上的僵尸吃掉了 死
+
+主线2
+你们终于回到了祖国，开始，由于生化病毒蔓延的十分迅猛，现在，只剩下北京没有被僵尸占领，其他的，都。。你。。。。。。。 ，发送《主线3》开始下一题
+
+
+主线3
+你们刚下船，就见到了狼牙特种大队的队长，他要给你一个精英党员，你选择：1 爆破手鲁严2 狙击手张凯3 机枪手龙华
+
+爆破手鲁严
+你选择了鲁严，但因为后期却少炸药，死
+
+狙击手张凯
+good 狙击手用的子弹不多，却能克制大量僵尸 活，发送《主线4》开始下一题
+
+机枪手龙华
+机枪手很耗子弹！ 死
+
+主线4
+你，张凯，樱熙雨在无人的街道走着，你们看到了一个便利店，决定：1 去看2 继续前走3 问问张凯的意见4 问问樱熙雨的意见
+
+去看
+你们走了进去，里面的僵尸吧你们吃了 死
+
+继续前走
+你们躲过了一劫 活，发送《主线5》开始下一题
+
+问问张凯的意见
+你们躲过了一劫 张凯好感度加15，发送《主线5》开始下一题
+
+问问樱熙雨的意见
+你们被里面的僵尸吃了 死
+
+主线5
+你们离开了便利店后，你们前往机场，你们应该开：1 汽车去2 摩托去3 卡车去4 单车去
+
+汽车去
+你们开着汽车，前往机场，半路抛锚了 死
+
+摩托去
+你们开着摩托，前往机场，半路爆胎了 死
+
+卡车去
+你们开着卡车，一路上撞了几个丧尸，最终到达了机场 活，发送《主线6》开始下一题
+
+单车去
+你是白痴吗？ 死
+
+主线6
+你们到达了机场外面，一路杀进去，终于找到了阿帕奇直升机！直升机起飞了，张凯用他的狙击枪干掉了几个追来的僵尸，却忽视了僵尸鸟！你决定用：1 加特林2 黑龙火箭3 H12导弹4 M4A1
+
+
+加特林
+那些僵尸鸟被加特林干掉了。 活，发送《主线7》开始下一题
+
+黑龙火箭
+黑龙导弹打不到它们 死
+
+H12导弹
+恭喜！僵尸鸟被炸成烤鸟了 活，发送《主线7》开始下一题
+
+M4A1
+之前说过你没子弹了。。 死
+
+
+主线7
+你，张凯，樱熙雨驾驶直升机继续飞行，直到看到了一个奇怪的阴影，你觉得那是：1 僵尸鸟群2 小直升机3 看超人4 巨型鲸鲨鸟
+
+僵尸鸟群
+错
+
+小直升机
+错
+
+看超人
+错
+
+巨型鲸鲨鸟
+你们碰到了巨型鲸鲨鸟！它就要过来撞飞机了！你应该：1 用黑龙导弹22 加特林23 H12导弹24 让张凯爆它头
+
+用黑龙导弹2
+你用黑龙导弹炸死了巨型鲸鲨鸟！ 活，发送《主线8》开始下一题
+
+加特林2
+加特林只对它造成微微的损伤。 死
+
+H12导弹2
+H－12导弹威力不够大。。 死
+
+让张凯爆它头
+张凯打瞎了它的眼睛 活 获得称号：鸟狙手，发送《主线8》开始下一题
+
+
+主线8
+你们解决了巨型鲸鲨鸟之后，你们继续飞行，碰到了一个鸟叔！？你：1 黑龙导弹32 H12导弹33张凯上鸟狙它4 加特林3
+
+黑龙导弹3
+黑龙导弹没有了 死
+
+H12导弹3
+H－12导弹打不到它 死
+
+张凯上鸟狙它
+“看谁！鸟叔杯具了” 活，发送《主线9》开始下一题
+
+加特林3
+加特林！鸟叔的“鸟”没有了 活，发送《主线9》开始下一题
+
+
+主线9
+你们解决了鸟叔之后，你们降临在了上海市的军事基地，一下直升机，就有一个人出来迎接你们，“你们好，我叫唠嗑，是基地站长。”
+你会：1 跟他聊聊2 不鸟他3 随便逛逛3
+
+跟他聊聊
+你没想到，你听着听着，就睡了 死
+
+不鸟他
+你们被赶到基地外面去了 死
+
+随便逛逛3
+你们打算随便逛逛。 活，发送《主线10》开始下一题
+
+主线10
+警卫给了你一个地图，你决定去：1 武器库2 住宿区3 办公室4 车库
+
+
+武器库
+活，发送《主线11》开始下一题
+
+住宿区
+死
+
+办公室
+死
+
+车库
+死
+
+主线11
+你们从武器库出来，又去了等等房间，你们在楼上睡着了，半夜，不知道是谁把大门打开了，一大群僵尸涌进基地，YOU：1 老子就不信了僵尸能干掉俺2 叫醒一群睡得半死的盆友3 看老子加特林扫射4 诺基亚在此僵尸们去西天吧
+
+老子就不信了僵尸能干掉俺
+你的智商。。。 死
+
+叫醒一群睡得半死的盆友
+你的盆友睡得香，你的叫声把僵尸引来了 死
+
+看老子加特林扫射
+你拿着加特林狂扫，僵尸们被打成马蜂窝了 活，发送《主线12》开始下一题
+
+诺基亚在此僵尸们去西天吧
+你用诺基亚扔向僵尸群，可是炸到了基地。。。 死
+
+主线12
+你们觉得基地不能待下去了，所以你们决定前往北京，你们找到了足够的食物以后，你们决定开：1 汽车22 直升机3 船4 战机
+
+汽车2
+汽车没有油了。。 死
+
+直升机2
+直升机是基地长专属的 死
+
+船
+你们登上了登陆机枪舰 活，发送《主线13》开始下一题
+
+战机
+你们都不会开战机。。 死
+
+主线13
+你们上了登陆舰后，开始启动登陆舰，你们又寻找了许多房间，现在，你要去：1 发动仓2 船长室3 一个充满腐烂气味的房间
+
+发动仓
+你们在发动仓发现了一名受伤的城管，发送《主线14》开始下一题
+
+船长室
+你们发现了“船长的日志，发送《主线14》开始下一题
+
+一个充满腐烂气味的房间
+你们被僵尸吃了
+
+
+主线14
+城管带你们找到了船长室，船长的日志上写着10月28日 阴不知道怎么回事，最近有很多日本人领事馆的人带一些奇怪的东西上船，还用保险箱锁住。11月15日 雨太可怕了！那些人居然拿活人做实验！不行！我要通知将军12月15日 大雨诶，将军居然是和他们是一伙的，祖国要被日本人给夺走了。。。你们看完了日志，发送《主线15》开始下一题
+
+
+主线15
+你们很快到达了杰斯卡街，下了船，你们走进了一个商铺，开始搜寻物资，突然之间，樱熙雨被一个巨大的夹杂着黑色的爪子拖到二楼，你决定1  自己去2 大家一起去
+
+自己去
+死
+
+大家一起去
+救出，活，发送《主线16》开始下一题
+
+主线16
+你们解决了异形后，继续搜寻物资，你发现了一个用油漆涂满了死字的门，你要让：1 城管去2 自己去23 樱熙雨去24 张凯去2
+
+
+
+城管去
+城管被一只巨大的爪壁抓走，你们却帮不上忙。
+
+自己去2
+好汉子！中国好男人！你一拳爆了一只异形，找到证物：‘将军与日本人的账单’，发送《证物》《日记1》《日记2》查看
+
+樱熙雨去2
+你是个让所有人都鄙视的人。。。
+
+张凯去2
+你是个让所有人都鄙视的人。。。，
+
+
+证物
+‘船长日记’‘将军与日本人的账单’
+“2012-10-15. ”将军收获日本生化武器试验费80000000“2012-10-25”将军给予日方昆仑山某作为军事基地，收益20亿接下的页面已经被黑色的血迹弄污浊了。。。
+
+日记1
+“嗨，怎么可能，哪个家伙作假新闻？不怕死吗？”叶枫心想。“算了算了，还是睡了吧。”叶枫慢慢吞吞地爬上了床，盖上了被子。。。。半夜中，漆黑的乌云盖住了月光，在凄惨淋漓的吼声中，叶枫入睡了。他不会想到，生化危机，爆发了。。。。街上，众多的直升机发出‘’特特‘’的螺旋桨声夹杂着枪声和悲吼声将世界推入深渊叶枫 笔记 2012年12月21日
+
+日记2
+樱熙雨日记：2012年12月21日“01：45” 什么？生化危机？那个人作的假新闻？”樱熙雨无聊地上下拖动鼠标，躺在桌上，进入了梦乡。。。。半夜，漆黑的夜晚下，一阵阵悲哀的吼声，将樱熙雨吵醒。“谁在鬼叫啊？人家还要睡觉呢。”樱熙雨走到窗边，楼下的情况把她震惊了 场景：楼下
+“gogogo!”楼下传来特种兵的话语声，激战开始了。。。。。。直升机的螺旋桨声和各种声音搅在一起，今夜，必定全世界难眠。。。。。N残T枫N： @药仪 @我那逝去的节操
+
+黯魂初音未来
+我的资料在下面
+
+每日一句
+$访问 https://api.lwl12.com/hitokoto/main/get$
+
+联系作者
+作者QQ:22247481637
+
+百度百科
+百科空格内容\r
+百度百科接口待更新\r
+
+\.*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+%参数0%
+
+.*
+a:$读 黯魂初音未来运行/%群号%/运行 a 0$
+如果:%a%==0
+$调用 1 关机框架$
+返回
+如果尾
+b:$读 黯魂初音未来斗图/%群号%/开关 a 0$
+如果:%b%==1
+1:你真坏呀
+2:初音不喜欢你了
+3:大坏蛋
+4:你再这我就生气了
+5:哼你走开我不喜欢你
+6:大佬啊好可怕呀
+7:小学生快去写作业
+8:搞得好像你很厉害一样
+9:你已存在初音黑名单
+B:%%随机数1-9%%
+A:%随机数1-41%
+±img=http://deepba.com/face/img.php?id=%A%&txt1=%B%&font=fzysjt±
+返回
+如果尾
+
+
+黯魂初音未来
+日本VOCALOID虚拟歌手，黯魂初音未来（黯魂初音未来/HatsuneMiku）黯魂初音未来（初音ミク/HatsuneMiku）是2007年8月31日由CRYPTON FUTURE MEDIA以Yamaha的VOCALOID系列语音合成程序为基础开发的音源库，音源数据资料采样于日本声优藤田咲。2010年4月30日，发布黯魂初音未来6种不同声调的版本“黯魂初音未来Append”。2013年8月31日，黯魂初音未来英文版本，同VOCALOID3一并发行。此外，黯魂初音未来还担任日本音乐团体Sound Horizon的演唱与合唱。随着“黯魂初音未来”声库的发售，这种成功的营销方式大幅改变了电子音乐人对于音乐业的认知和整个行业的格局。
+
+
+每日一句
+$访问 https://api.lwl12.com/hitokoto/main/get$
+
+联系作者
+作者QQ:2247481637

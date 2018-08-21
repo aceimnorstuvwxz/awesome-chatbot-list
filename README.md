@@ -202,6 +202,10 @@ dgk_lost_conv中字幕生成的材料的问题是质量较差，这是因为字�
 或者
 从微博、QQ群、微信群等地方挖掘更多的1v1的对话材料。
 
+## 其他资源：
+
+- https://github.com/warmheartli/ChatBotCourse 中文的一个聊天机器人教程
+
 
 ## Papers
 
@@ -213,7 +217,7 @@ dgk_lost_conv中字幕生成的材料的问题是质量较差，这是因为字�
 
 ## 其它：
 
-为了方便中文用户中对chatbot/NLP/DeepLearning感兴趣的朋友们互相交流，建了一个QQ群，欢迎您加入讨论：
+QQ群：
 
 ![chatbot_qq_qun](https://ws2.sinaimg.cn/large/006tNc79gy1fn925c4kmtj30k1082q3l.jpg)
 
