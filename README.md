@@ -217,8 +217,6 @@ dgk_lost_conv中字幕生成的材料的问题是质量较差，这是因为字�
 
 ## 其它：
 
-QQ群：
 
-![chatbot_qq_qun](https://ws2.sinaimg.cn/large/006tNc79gy1fn925c4kmtj30k1082q3l.jpg)
 
 [Github fork](https://github.com/fateleak/awesome-chatbot-list)
