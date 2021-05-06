@@ -1,8 +1,6 @@
 
 
-![cover](https://ws1.sinaimg.cn/large/006tNc79gy1fn924jmcfmj31dc0h8js4.jpg)
 
-![Contributions Welcome](https://img.shields.io/badge/Contributions-welcome-blue.svg)
 
 Know a resource that isn't listed below? Feel free to create a new [pull request](https://github.com/fateleak/awesome-chatbot-list/pulls), or open an [issue](https://github.com/fateleak/awesome-chatbot-list/issues/new).Seq2seq/chatbot/聊天机器人相关资源收集列表。
 
